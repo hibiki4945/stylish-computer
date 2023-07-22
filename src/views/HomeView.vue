@@ -221,43 +221,14 @@ export default {
             }
         },
         num1(){
-            // this.num2();
             if(this.resultshowup.includes("+")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagplus = true;
-                    // this.result /= 10;
-                    this.result2 = +(this.resultshow+"1");
-                    this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    
-                    return;
-                };
-                // console.log("flagplus!");
                 this.flagplus = true;
-                this.result2 = this.result2*10 + 1;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+                this.includesplus(1);
                 return;
             }
             else if(this.resultshowup.includes("-")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
                 if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
                     this.flagminus = true;
-                    // this.result /= 10;
                     this.result2 = +(this.resultshow+"1");
                     this.resultshow = this.result2.toString();
             this.resultshowfix = this.resultshow;
@@ -267,7 +238,6 @@ export default {
                     
                     return;
                 };
-                // console.log("flagplus!");
                 this.flagminus = true;
                 this.result2 = this.result2*10 + 1;
                 this.resultshow = this.result2.toString();
@@ -308,10 +278,7 @@ export default {
                 return;
             }
   
-            // console.log(this.resultshow);
             if(this.resultshow.includes(".")){
-                    // console.log("flagdot!");
-                    // this.result /= 10;
                     this.result = +(this.resultshow+"1");
                     this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
@@ -1568,6 +1535,27 @@ export default {
             this.resultshowup = this.resultshow;
                 
         },
+        includesplus(num){
+
+            if(this.resultshow.split('.').length - 1){
+                    this.flagplus = true;
+                    this.result2 = +(this.resultshow+num.toString());
+                    this.resultshow = this.result2.toString();
+                    this.resultshowfix = this.resultshow;
+                    for(let i=3;i<this.resultshowfix.length;i+=4){
+                        this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+                    }
+                    
+                    return;
+                };
+                this.flagplus = true;
+                this.result2 = this.result2*10 + +num;
+                this.resultshow = this.result2.toString();
+            this.resultshowfix = this.resultshow;
+            for(let i=3;i<this.resultshowfix.length;i+=4){
+                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            }
+        }
     },
 }
 </script>
