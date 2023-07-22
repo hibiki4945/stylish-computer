@@ -13,6 +13,11 @@ export default {
             flagmulti: false,
             flagdivided: false,
             flagdot: false,
+            area: "flex",
+            box1: "flex w-24 h-12 m-auto justify-center items-center rounded-xl",
+            box2: "flex w-52 h-12 my-auto mx-2 justify-center items-center bg-gradient-to-r from-sky-500 to-indigo-500 rounded-xl",
+            box13: "flex w-24 h-12 m-2.5 justify-center items-center rounded-xl bg-emerald-900",
+
         }
     },
     methods: {
@@ -332,46 +337,48 @@ export default {
 </script>
 
 <template>
-    <div class="container">
-        <div class="result-area">
-            <p class="p1">{{ resultshowup }}</p>
-            <p class="p2">{{ resultshowfix }}</p>
-            <p v-if="false">+</p>
-        </div>
+    <body class="flex w-full h-screen m-auto justify-center items-center bg-black relative">
+        <div class="w-80 h-5/6 rounded-2xl bg-cyan-700 relative">
 
-        <div class="button-area">
-            <div class="area">
-                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(7)">7</button></div>
-                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(8)">8</button></div>
-                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(9)">9</button></div>
-                <div class="box1 box3"><button type="button" class="btn btn-func btn-count" @click="numdivided()">/</button></div>
+            <div class="flex w-full h-1/5 rounded-t-2xl bg-cyan-950 relative">
+                <p class="text-xl text-white absolute top-0.5 right-8">{{ resultshowup }}</p>
+                <p class="text-6xl text-white absolute top-5 right-8">{{ resultshowfix }}</p>
             </div>
-            <div class="area">
-                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(4)">4</button></div>
-                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(5)">5</button></div>
-                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(6)">6</button></div>
-                <div class="box1 box3"><button type="button" class="btn btn-func btn-count" @click="nummulti()">x</button></div>
-            </div>
-            <div class="area">
-                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(1)">1</button></div>
-                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(2)">2</button></div>
-                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(3)">3</button></div>
-                <div class="box1 box3"><button type="button" class="btn btn-func btn-count" @click="numplus()">+</button></div>
-            </div> 
-            <div class="area">
-                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(0)">0</button></div>
-                <div class="box1"><button type="button" class="btn btn-num" @click="num00()">00</button></div>
-                <div class="box1"><button type="button" class="btn btn-num" @click="numdot()">.</button></div>
-                <div class="box1 box3"><button type="button" class="btn btn-func btn-count" @click="numminus()">-</button></div>
-            </div>
-            <div class="area">
-                <div class="box1"><button type="button" class="btn btn-func" @click="numac()">AC</button></div>
-                <div class="box1"><button type="button" class="btn btn-func" @click="numback()">D</button></div>
-                <div class="box2"><button type="button" class="btn btn-num btn-equal" @click="numequal()">=</button></div>
-            </div>
-        </div>
 
-    </div>
+            <div class="h-5/6 relative m-auto justify-center items-center">
+                <div :class=area>
+                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(7)">7</button></div>
+                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(8)">8</button></div>
+                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(9)">9</button></div>
+                    <div :class=box13><button type="button" class="btn btn-func btn-count" @click="numdivided()">/</button></div>
+                </div>
+                <div :class=area>
+                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(4)">4</button></div>
+                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(5)">5</button></div>
+                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(6)">6</button></div>
+                    <div :class=box13><button type="button" class="btn btn-func btn-count" @click="nummulti()">x</button></div>
+                </div>
+                <div :class=area>
+                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(1)">1</button></div>
+                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(2)">2</button></div>
+                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(3)">3</button></div>
+                    <div :class=box13><button type="button" class="btn btn-func btn-count" @click="numplus()">+</button></div>
+                </div> 
+                <div :class=area>
+                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(0)">0</button></div>
+                    <div :class=box1><button type="button" class="btn btn-num" @click="num00()">00</button></div>
+                    <div :class=box1><button type="button" class="btn btn-num" @click="numdot()">.</button></div>
+                    <div :class=box13><button type="button" class="btn btn-func btn-count" @click="numminus()">-</button></div>
+                </div>
+                <div :class=area>
+                    <div :class=box1><button type="button" class="btn btn-func" @click="numac()">AC</button></div>
+                    <div :class=box1><button type="button" class="btn btn-func" @click="numback()">D</button></div>
+                    <div :class=box2><button type="button" class="btn btn-num btn-equal" @click="numequal()">=</button></div>
+                </div>
+            </div>
+
+        </div>
+    </body>
 </template>
 
 <style lang="scss" scoped>
