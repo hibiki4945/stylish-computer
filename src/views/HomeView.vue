@@ -341,39 +341,23 @@ export default {
 
         <div class="button-area">
             <div class="area">
-                <div class="box1">
-                    <button type="button" class="btn btn-num" @click="numfunction(7)">7</button>
-                </div>
-                <div class="box1">
-                    <button type="button" class="btn btn-num" @click="numfunction(8)">8</button>       
-                </div>
-                <div class="box1">
-                    <button type="button" class="btn btn-num" @click="numfunction(9)">9</button>     
-                </div>
-                <div class="box1 box3">
-                    <button type="button" class="btn btn-func btn-count" @click="numdivided()">/</button>
-                </div>
+                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(7)">7</button></div>
+                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(8)">8</button></div>
+                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(9)">9</button></div>
+                <div class="box1 box3"><button type="button" class="btn btn-func btn-count" @click="numdivided()">/</button></div>
             </div>
             <div class="area">
-                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(4)">4</button>
-                </div>
-                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(5)">5</button>
-                </div>
-                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(6)">6</button>
-                </div>
-                <div class="box1 box3"><button type="button" class="btn btn-func btn-count" @click="nummulti()">x</button>
-            </div>
+                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(4)">4</button></div>
+                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(5)">5</button></div>
+                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(6)">6</button></div>
+                <div class="box1 box3"><button type="button" class="btn btn-func btn-count" @click="nummulti()">x</button></div>
             </div>
             <div class="area">
-                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(1)">1</button>
-                </div>
-                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(2)">2</button>
-                </div>
-                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(3)">3</button>
-                </div>
-                <div class="box1 box3"><button type="button" class="btn btn-func btn-count" @click="numplus()">+</button>
-            </div>
-            </div>
+                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(1)">1</button></div>
+                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(2)">2</button></div>
+                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(3)">3</button></div>
+                <div class="box1 box3"><button type="button" class="btn btn-func btn-count" @click="numplus()">+</button></div>
+            </div> 
             <div class="area">
                 <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(0)">0</button>
                 </div>
