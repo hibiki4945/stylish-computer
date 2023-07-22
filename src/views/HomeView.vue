@@ -220,914 +220,32 @@ export default {
                 this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
             }
         },
-        num1(){
+        numfunction(num){
             if(this.resultshowup.includes("+")){
                 this.flagplus = true;
-                this.includesplus(1);
+                this.includesplus(num);
                 return;
             }
             else if(this.resultshowup.includes("-")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagminus = true;
-                    this.result2 = +(this.resultshow+"1");
-                    this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
                 this.flagminus = true;
-                this.result2 = this.result2*10 + 1;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+                this.includesminus(num);
                 return;
             }
             else if(this.resultshowup.includes("x")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagmulti = true;
-                    this.resultshow = this.resultshow+"1";
-                    return;
-                };
                 this.flagmulti = true;
-                this.result2 = this.result2*10 + 1;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+                this.includesmulti(num);
                 return;
             }
             else if(this.resultshowup.includes("/")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagdivided = true;
-                    this.resultshow = this.resultshow+"1";
-                    return;
-                };
                 this.flagdivided = true;
-                this.result2 = this.result2*10 + 1;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+                this.includesdivided(num);
                 return;
             }
-  
             if(this.resultshow.includes(".")){
-                    this.result = +(this.resultshow+"1");
-                    this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    return;
-                };
-            this.result = this.result*10 + 1;
-            this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-        },
-        num2(){
-            if(this.resultshowup.includes("+")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagplus = true;
-                    // this.result /= 10;
-                    this.result2 = +(this.resultshow+"2");
-                    this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagplus = true;
-                this.result2 = this.result2*10 + 2;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+                this.includesdot(num);
                 return;
-            }
-            else if(this.resultshowup.includes("-")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagminus = true;
-                    // this.result /= 10;
-                    this.result2 = +(this.resultshow+"2");
-                    this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagminus = true;
-                this.result2 = this.result2*10 + 2;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("x")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagmulti = true;
-                    this.resultshow = this.resultshow+"2";
-                    return;
-                };
-                this.flagmulti = true;
-                this.result2 = this.result2*10 + 2;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("/")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagdivided = true;
-                    this.resultshow = this.resultshow+"2";
-                    return;
-                };
-                this.flagdivided = true;
-                this.result2 = this.result2*10 + 2;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-  
-            console.log(this.resultshow);
-            if(this.resultshow.includes(".")){
-                    // console.log("flagdot!");
-                    // this.result /= 10;
-                    this.result = +(this.resultshow+"2");
-                    this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    return;
-                };
-            this.result = this.result*10 + 2;
-            this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-        },
-        num3(){
-            if(this.resultshowup.includes("+")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagplus = true;
-                    // this.result /= 10;
-                    this.result2 = +(this.resultshow+"3");
-                    this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagplus = true;
-                this.result2 = this.result2*10 + 3;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("-")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagminus = true;
-                    // this.result /= 10;
-                    this.result2 = +(this.resultshow+"3");
-                    this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagminus = true;
-                this.result2 = this.result2*10 + 3;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("x")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagmulti = true;
-                    this.resultshow = this.resultshow+"3";
-                    return;
-                };
-                this.flagmulti = true;
-                this.result2 = this.result2*10 + 3;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("/")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagdivided = true;
-                    this.resultshow = this.resultshow+"3";
-                    return;
-                };
-                this.flagdivided = true;
-                this.result2 = this.result2*10 + 3;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-  
-            // console.log(this.resultshow);
-            if(this.resultshow.includes(".")){
-                    // console.log("flagdot!");
-                    // this.result /= 10;
-                    this.result = +(this.resultshow+"3");
-                    this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    return;
-                };
-            this.result = this.result*10 + 3;
-            this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-        },
-        num4(){
-            if(this.resultshowup.includes("+")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagplus = true;
-                    // this.result /= 10;
-                    this.result2 = +(this.resultshow+"4");
-                    this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagplus = true;
-                this.result2 = this.result2*10 + 4;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("-")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagminus = true;
-                    // this.result /= 10;
-                    this.result2 = +(this.resultshow+"4");
-                    this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagminus = true;
-                this.result2 = this.result2*10 + 4;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("x")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagmulti = true;
-                    this.resultshow = this.resultshow+"4";
-                    return;
-                };
-                this.flagmulti = true;
-                this.result2 = this.result2*10 + 4;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("/")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagdivided = true;
-                    this.resultshow = this.resultshow+"4";
-                    return;
-                };
-                this.flagdivided = true;
-                this.result2 = this.result2*10 + 4;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-  
-            // console.log(this.resultshow);
-            if(this.resultshow.includes(".")){
-                    // console.log("flagdot!");
-                    // this.result /= 10;
-                    this.result = +(this.resultshow+"4");
-                    this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    return;
-                };
-            this.result = this.result*10 + 4;
-            this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-        },
-        num5(){
-            if(this.resultshowup.includes("+")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagplus = true;
-                    // this.result /= 10;
-                    this.result2 = +(this.resultshow+"5");
-                    this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagplus = true;
-                this.result2 = this.result2*10 + 5;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("-")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagminus = true;
-                    // this.result /= 10;
-                    this.result2 = +(this.resultshow+"5");
-                    this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagminus = true;
-                this.result2 = this.result2*10 + 5;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("x")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagmulti = true;
-                    this.resultshow = this.resultshow+"5";
-                    return;
-                };
-                this.flagmulti = true;
-                this.result2 = this.result2*10 + 5;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("/")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagdivided = true;
-                    this.resultshow = this.resultshow+"5";
-                    return;
-                };
-                this.flagdivided = true;
-                this.result2 = this.result2*10 + 5;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-  
-            // console.log(this.resultshow);
-            if(this.resultshow.includes(".")){
-                    // console.log("flagdot!");
-                    // this.result /= 10;
-                    this.result = +(this.resultshow+"5");
-                    this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    return;
-                };
-            this.result = this.result*10 + 5;
-            this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-        },
-        num6(){
-            if(this.resultshowup.includes("+")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagplus = true;
-                    // this.result /= 10;
-                    this.result2 = +(this.resultshow+"6");
-                    this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagplus = true;
-                this.result2 = this.result2*10 + 6;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("-")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagminus = true;
-                    // this.result /= 10;
-                    this.result2 = +(this.resultshow+"6");
-                    this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagminus = true;
-                this.result2 = this.result2*10 + 6;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("x")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagmulti = true;
-                    this.resultshow = this.resultshow+"6";
-                    return;
-                };
-                this.flagmulti = true;
-                this.result2 = this.result2*10 + 6;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("/")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagdivided = true;
-                    this.resultshow = this.resultshow+"6";
-                    return;
-                };
-                this.flagdivided = true;
-                this.result2 = this.result2*10 + 6;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-  
-            // console.log(this.resultshow);
-            if(this.resultshow.includes(".")){
-                    // console.log("flagdot!");
-                    // this.result /= 10;
-                    this.result = +(this.resultshow+"6");
-                    this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    return;
-                };
-            this.result = this.result*10 + 6;
-            this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-        },
-        num7(){
-            if(this.resultshowup.includes("+")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagplus = true;
-                    // this.result /= 10;
-                    this.result2 = +(this.resultshow+"7");
-                    this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagplus = true;
-                this.result2 = this.result2*10 + 7;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("-")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagminus = true;
-                    // this.result /= 10;
-                    this.result2 = +(this.resultshow+"7");
-                    this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagminus = true;
-                this.result2 = this.result2*10 + 7;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("x")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagmulti = true;
-                    this.resultshow = this.resultshow+"7";
-                    return;
-                };
-                this.flagmulti = true;
-                this.result2 = this.result2*10 + 7;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("/")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagdivided = true;
-                    this.resultshow = this.resultshow+"7";
-                    return;
-                };
-                this.flagdivided = true;
-                this.result2 = this.result2*10 + 7;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-  
-            // console.log(this.resultshow);
-            if(this.resultshow.includes(".")){
-                    // console.log("flagdot!");
-                    // this.result /= 10;
-                    this.result = +(this.resultshow+"7");
-                    this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    return;
-                };
-            this.result = this.result*10 + 7;
-            this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-        },
-        num8(){
-            if(this.resultshowup.includes("+")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagplus = true;
-                    // this.result /= 10;
-                    this.result2 = +(this.resultshow+"8");
-                    this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagplus = true;
-                this.result2 = this.result2*10 + 8;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("-")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagminus = true;
-                    // this.result /= 10;
-                    this.result2 = +(this.resultshow+"8");
-                    this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagminus = true;
-                this.result2 = this.result2*10 + 8;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("x")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagmulti = true;
-                    this.resultshow = this.resultshow+"8";
-                    return;
-                };
-                this.flagmulti = true;
-                this.result2 = this.result2*10 + 8;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("/")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagdivided = true;
-                    this.resultshow = this.resultshow+"8";
-                    return;
-                };
-                this.flagdivided = true;
-                this.result2 = this.result2*10 + 8;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-  
-            // console.log(this.resultshow);
-            if(this.resultshow.includes(".")){
-                    // console.log("flagdot!");
-                    // this.result /= 10;
-                    this.result = +(this.resultshow+"8");
-                    this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    return;
-                };
-            this.result = this.result*10 + 8;
-            this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-        },
-        num9(){
-            if(this.resultshowup.includes("+")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagplus = true;
-                    // this.result /= 10;
-                    this.result2 = +(this.resultshow+"9");
-                    this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagplus = true;
-                this.result2 = this.result2*10 + 9;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("-")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagplus = true;
-                    // this.result /= 10;
-                    this.result2 = +(this.resultshow+"9");
-                    this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagplus = true;
-                this.result2 = this.result2*10 + 9;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("x")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagmulti = true;
-                    this.resultshow = this.resultshow+"9";
-                    return;
-                };
-                this.flagmulti = true;
-                this.result2 = this.result2*10 + 9;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("/")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagdivided = true;
-                    this.resultshow = this.resultshow+"9";
-                    return;
-                };
-                this.flagdivided = true;
-                this.result2 = this.result2*10 + 9;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-  
-            // console.log(this.resultshow);
-            if(this.resultshow.includes(".")){
-                    // console.log("flagdot!");
-                    // this.result /= 10;
-                    this.result = +(this.resultshow+"9");
-                    this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    return;
-                };
-            this.result = this.result*10 + 9;
+            };
+            this.result = this.result*10 + +num;
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
             for(let i=3;i<this.resultshowfix.length;i+=4){
@@ -1538,24 +656,72 @@ export default {
         includesplus(num){
 
             if(this.resultshow.split('.').length - 1){
-                    this.flagplus = true;
-                    this.result2 = +(this.resultshow+num.toString());
-                    this.resultshow = this.result2.toString();
-                    this.resultshowfix = this.resultshow;
-                    for(let i=3;i<this.resultshowfix.length;i+=4){
-                        this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-                    }
-                    
-                    return;
-                };
                 this.flagplus = true;
-                this.result2 = this.result2*10 + +num;
+                this.result2 = +(this.resultshow+num.toString());
                 this.resultshow = this.result2.toString();
+                this.resultshowfix = this.resultshow;
+                for(let i=3;i<this.resultshowfix.length;i+=4){
+                    this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+                }
+                return;
+            };
+            this.flagplus = true;
+            this.result2 = this.result2*10 + +num;
+            this.resultshow = this.result2.toString();
             this.resultshowfix = this.resultshow;
             for(let i=3;i<this.resultshowfix.length;i+=4){
                 this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
             }
-        }
+        },
+        includesminus(num){
+            if(this.resultshow.split('.').length - 1){
+                this.result2 = +(this.resultshow+num.toString());
+                this.resultshow = this.result2.toString();
+                this.resultshowfix = this.resultshow;
+                for(let i=3;i<this.resultshowfix.length;i+=4){
+                    this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+                }
+                return;
+            };
+            this.result2 = this.result2*10 + +num;
+            this.resultshow = this.result2.toString();
+            this.resultshowfix = this.resultshow;
+            for(let i=3;i<this.resultshowfix.length;i+=4){
+                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            }
+        },
+        includesmulti(num){
+            if(this.resultshow.split('.').length - 1){
+                this.resultshow = this.resultshow+num.toString();
+                return;
+            };
+            this.result2 = this.result2*10 + +num;
+            this.resultshow = this.result2.toString();
+            this.resultshowfix = this.resultshow;
+            for(let i=3;i<this.resultshowfix.length;i+=4){
+                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            }
+        },
+        includesdivided(num){
+            if(this.resultshow.split('.').length - 1){
+                this.resultshow = this.resultshow+num.toString();
+                return;
+            };
+            this.result2 = this.result2*10 + +num;
+            this.resultshow = this.result2.toString();
+            this.resultshowfix = this.resultshow;
+            for(let i=3;i<this.resultshowfix.length;i+=4){
+            this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            }
+        },
+        includesdot(num){
+            this.result = +(this.resultshow+num.toString());
+            this.resultshow = this.result.toString();
+            this.resultshowfix = this.resultshow;
+            for(let i=3;i<this.resultshowfix.length;i+=4){
+                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            }
+        },
     },
 }
 </script>
@@ -1573,34 +739,34 @@ export default {
         <div class="button-area">
             <div class="area">
                 <div class="box1">
-                    <button type="button" class="btn btn-num" @click="num7()">7</button>
+                    <button type="button" class="btn btn-num" @click="numfunction(7)">7</button>
                 </div>
                 <div class="box1">
-                    <button type="button" class="btn btn-num" @click="num8()">8</button>       
+                    <button type="button" class="btn btn-num" @click="numfunction(8)">8</button>       
                 </div>
                 <div class="box1">
-                    <button type="button" class="btn btn-num" @click="num9()">9</button>     
+                    <button type="button" class="btn btn-num" @click="numfunction(9)">9</button>     
                 </div>
                 <div class="box1 box3">
                     <button type="button" class="btn btn-func btn-count" @click="numdivided()">/</button>
                 </div>
             </div>
             <div class="area">
-                <div class="box1"><button type="button" class="btn btn-num" @click="num4()">4</button>
+                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(4)">4</button>
                 </div>
-                <div class="box1"><button type="button" class="btn btn-num" @click="num5()">5</button>
+                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(5)">5</button>
                 </div>
-                <div class="box1"><button type="button" class="btn btn-num" @click="num6()">6</button>
+                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(6)">6</button>
                 </div>
                 <div class="box1 box3"><button type="button" class="btn btn-func btn-count" @click="nummulti()">x</button>
             </div>
             </div>
             <div class="area">
-                <div class="box1"><button type="button" class="btn btn-num" @click="num1">1</button>
+                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(1)">1</button>
                 </div>
-                <div class="box1"><button type="button" class="btn btn-num" @click="num2()">2</button>
+                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(2)">2</button>
                 </div>
-                <div class="box1"><button type="button" class="btn btn-num" @click="num3()">3</button>
+                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(3)">3</button>
                 </div>
                 <div class="box1 box3"><button type="button" class="btn btn-func btn-count" @click="numplus()">+</button>
             </div>
