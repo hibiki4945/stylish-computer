@@ -16,209 +16,9 @@ export default {
         }
     },
     methods: {
-        num0(){
-            if(this.resultshowup.includes("+")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagplus = true;
-                    // this.result /= 10;
-                    this.resultshow = this.resultshow+"0";
-                    // this.result = +(this.resultshow+"0");
-                    // this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagplus = true;
-                this.result2 = this.result2*10 + 0;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("-")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagminus = true;
-                    this.resultshow = this.resultshow+"0";
-                    return;
-                };
-                this.flagminus = true;
-                this.result2 = this.result2*10 + 0;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("x")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagmulti = true;
-                    this.resultshow = this.resultshow+"0";
-                    return;
-                };
-                this.flagmulti = true;
-                this.result2 = this.result2*10 + 0;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("/")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagdivided = true;
-                    this.resultshow = this.resultshow+"0";
-                    return;
-                };
-                this.flagdivided = true;
-                this.result2 = this.result2*10 + 0;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-
-  
-            // console.log(this.resultshow);
-            if(this.resultshow.includes(".")){
-                    // console.log("flagdot!");
-                    // this.result /= 10;
-                    this.resultshow = this.resultshow+"0";
-                    // this.result = +(this.resultshow+"0");
-                    // this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    return;
-                };
-            this.result = this.result*10 + 0;
-            this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-        },
         num00(){
-            if(this.resultshowup.includes("+")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagplus = true;
-                    // this.result /= 10;
-                    this.resultshow = this.resultshow+"00";
-                    // this.result = +(this.resultshow+"0");
-                    // this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagplus = true;
-                this.result2 = this.result2*100 + 0;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("-")){
-                // console.log((this.resultshowup.split('.').length - 1));
-                // console.log((this.resultshowup.split('.').length - 1) >= 2);
-                if(this.resultshow.split('.').length - 1){
-                    // console.log("flagdot!");
-                    // console.log("flagplus!");
-                    this.flagminus = true;
-                    // this.result /= 10;
-                    this.resultshow = this.resultshow+"00";
-                    // this.result = +(this.resultshow+"0");
-                    // this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    
-                    return;
-                };
-                // console.log("flagplus!");
-                this.flagminus = true;
-                this.result2 = this.result2*100 + 0;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("x")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagmulti = true;
-                    this.resultshow = this.resultshow+"00";
-                    return;
-                };
-                this.flagmulti = true;
-                this.result2 = this.result2*10 + 0;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-            else if(this.resultshowup.includes("/")){
-                if(this.resultshow.split('.').length - 1){
-                    this.flagdivided = true;
-                    this.resultshow = this.resultshow+"00";
-                    return;
-                };
-                this.flagdivided = true;
-                this.result2 = this.result2*10 + 0;
-                this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                return;
-            }
-  
-            // console.log(this.resultshow);
-            if(this.resultshow.includes(".")){
-                    // console.log("flagdot!");
-                    // this.result /= 10;
-                    this.resultshow = this.resultshow+"00";
-                    // this.result = +(this.resultshow+"0");
-                    // this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
-                    return;
-                };
-            this.result = this.result*100 + 0;
-            this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            this.numfunction(0);
+            this.numfunction(0);
         },
         numfunction(num){
             if(this.resultshowup.includes("+")){
@@ -248,9 +48,9 @@ export default {
             this.result = this.result*10 + +num;
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
         },
         numplus(){
             if(this.flagplus){
@@ -263,9 +63,9 @@ export default {
                 this.resultshowup = this.result+"+";
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else if(this.flagminus){
                 let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
@@ -277,9 +77,9 @@ export default {
                 this.resultshowup = this.result+"+";
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else if(this.flagmulti){
                 this.flagmulti = false;
@@ -288,9 +88,9 @@ export default {
                 this.resultshowup = this.result+"+";
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else if(this.flagdivided){
                 this.flagdivided = false;
@@ -299,9 +99,9 @@ export default {
                 this.resultshowup = this.result+"+";
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else{
                 // this.flagplus = true;
@@ -328,9 +128,9 @@ export default {
                 this.resultshowup = this.result+"-";
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else if(this.flagminus){
                 let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
@@ -342,9 +142,9 @@ export default {
                 this.resultshowup = this.result+"-";
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else if(this.flagmulti){
                 this.flagmulti = false;
@@ -353,9 +153,9 @@ export default {
                 this.resultshowup = this.result+"-";
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else if(this.flagdivided){
                 this.flagdivided = false;
@@ -364,9 +164,9 @@ export default {
                 this.resultshowup = this.result+"-";
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else{
                 // this.flagplus = true;
@@ -393,9 +193,9 @@ export default {
                 this.resultshowup = this.result+"x";
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else if(this.flagminus){
                 let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
@@ -407,9 +207,9 @@ export default {
                 this.resultshowup = this.result+"x";
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else if(this.flagmulti){
                 this.flagmulti = false;
@@ -418,9 +218,9 @@ export default {
                 this.resultshowup = this.result+"x";
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else if(this.flagdivided){
                 this.flagdivided = false;
@@ -429,9 +229,9 @@ export default {
                 this.resultshowup = this.result+"x";
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else{
                 // this.flagplus = true;
@@ -457,9 +257,9 @@ export default {
                 this.resultshowup = this.result+"/";
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else if(this.flagminus){
                 let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
@@ -471,9 +271,9 @@ export default {
                 this.resultshowup = this.result+"/";
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else if(this.flagmulti){
                 this.flagmulti = false;
@@ -482,9 +282,9 @@ export default {
                 this.resultshowup = this.result+"/";
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else if(this.flagdivided){
                 this.flagdivided = false;
@@ -493,9 +293,9 @@ export default {
                 this.resultshowup = this.result+"/";
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else{
                 // this.flagplus = true;
@@ -541,9 +341,9 @@ export default {
                 // console.log("resultshowup:"+this.resultshowup);
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else if(this.flagminus){
                 this.flagminus = false;
@@ -555,9 +355,9 @@ export default {
                 // console.log("resultshowup:"+this.resultshowup);
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else if(this.flagmulti){
                 this.flagmulti = false;
@@ -566,9 +366,9 @@ export default {
                 this.resultshowup = this.result.toString();
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             else if(this.flagdivided){
                 this.flagdivided = false;
@@ -577,9 +377,9 @@ export default {
                 this.resultshowup = this.result.toString();
                 this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             }
             this.result2 = 0;
             // console.log("resultshow:"+this.resultshow);
@@ -594,14 +394,22 @@ export default {
 
             this.flagdot = true;
             this.resultshow += ".";
+            this.resultshowfix = this.resultshow;
         },
         numac(){
-            // this.result = this.result*10 + 1;
-
             this.result = 0;
             this.result2 = 0;
             this.resultshowup = "";
             this.resultshow = "0";
+            this.resultshowupfix = "";
+            this.resultshowfix = "0";
+
+            this.flagplus = false;
+            this.flagminus = false;
+            this.flagmulti = false;
+            this.flagdivided = false;
+            this.flagdot = false;
+
         },
         numback(){
             
@@ -622,9 +430,9 @@ export default {
                 this.result2 = +(this.resultshow.substring(0, this.resultshow.length - 1));
                 this.resultshow = this.result2.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
                 // this.resultshowup = this.resultshow;
                 return;
             }
@@ -647,9 +455,9 @@ export default {
             this.result = +(this.resultshow.substring(0, this.resultshow.length - 1));
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
             this.resultshowup = this.resultshow;
                 
         },
@@ -660,35 +468,35 @@ export default {
                 this.result2 = +(this.resultshow+num.toString());
                 this.resultshow = this.result2.toString();
                 this.resultshowfix = this.resultshow;
-                for(let i=3;i<this.resultshowfix.length;i+=4){
-                    this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-                }
+                // for(let i=3;i<this.resultshowfix.length;i+=4){
+                //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+                // }
                 return;
             };
             this.flagplus = true;
             this.result2 = this.result2*10 + +num;
             this.resultshow = this.result2.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
         },
         includesminus(num){
             if(this.resultshow.split('.').length - 1){
                 this.result2 = +(this.resultshow+num.toString());
                 this.resultshow = this.result2.toString();
                 this.resultshowfix = this.resultshow;
-                for(let i=3;i<this.resultshowfix.length;i+=4){
-                    this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-                }
+                // for(let i=3;i<this.resultshowfix.length;i+=4){
+                //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+                // }
                 return;
             };
             this.result2 = this.result2*10 + +num;
             this.resultshow = this.result2.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
         },
         includesmulti(num){
             if(this.resultshow.split('.').length - 1){
@@ -698,9 +506,9 @@ export default {
             this.result2 = this.result2*10 + +num;
             this.resultshow = this.result2.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
         },
         includesdivided(num){
             if(this.resultshow.split('.').length - 1){
@@ -710,28 +518,31 @@ export default {
             this.result2 = this.result2*10 + +num;
             this.resultshow = this.result2.toString();
             this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-            this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            }
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            // this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
         },
         includesdot(num){
-            this.result = +(this.resultshow+num.toString());
-            this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            if(num !== 0){
+                this.resultshow += num.toString()
+                this.result = +(this.resultshow);
             }
+            else{
+                this.resultshow += num.toString();
+            }
+            this.resultshowfix = this.resultshow;
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
         },
     },
 }
 </script>
 
 <template>
-    <!-- <p>123</p>/ -->
     <div class="container">
         <div class="result-area">
             <p class="p1">{{ resultshowup }}</p>
-            <!-- <p>{{ resultshow }}</p> -->
             <p class="p2">{{ resultshowfix }}</p>
             <p v-if="false">+</p>
         </div>
@@ -772,7 +583,7 @@ export default {
             </div>
             </div>
             <div class="area">
-                <div class="box1"><button type="button" class="btn btn-num" @click="num0()">0</button>
+                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(0)">0</button>
                 </div>
                 <div class="box1"><button type="button" class="btn btn-num" @click="num00()">00</button>
                 </div>
@@ -786,7 +597,6 @@ export default {
                 </div>
                 <div class="box1"><button type="button" class="btn btn-func" @click="numback()">D</button>
                 </div>
-                <!-- <div class="box2"><button type="button" class="btn btn-num btn-equal" @click="numequal()">=</button> -->
                 <div class="box2"><button type="button" class="btn btn-num btn-equal" @click="numequal()">=</button>
             </div>
             </div>
@@ -816,24 +626,15 @@ export default {
                 font-size: 20px;
                 color: white;
                 position: absolute;
-                // position: relative;
-                // bottom: 10px;
                 top: 10px;
                 right: 30px;
-                // left: 200px;
             }
-            // .p1{
-            //     width: 100%;
-            // }
             p{
                 font-size: 60px;
                 color: white;
                 position: absolute;
-                // position: relative;
-                // bottom: 10px;
                 top: 20px;
                 right: 30px;
-                // left: 200px;
             }
         }
         .button-area{
@@ -844,7 +645,6 @@ export default {
             align-items: center;
             .area{
                 display: flex;
-
                 .box1{
                     display: flex;
                     width: 100px;
@@ -854,7 +654,6 @@ export default {
                     align-items: center;
                     border-radius: 10px;
                 }
-
                 .box2{
                     display: flex;
                     width: 200px;
@@ -873,7 +672,6 @@ export default {
             }
             .btn{
                 font-size: 30px;
-                // padding: 3px 24px;
                 background-color: #2f3dd5;
                 cursor: pointer;
             }
@@ -888,9 +686,7 @@ export default {
             }
             .btn-equal{
                 width: 100px;
-                // padding: 10px;
                 background:none;
-            
             }
         }
     }
