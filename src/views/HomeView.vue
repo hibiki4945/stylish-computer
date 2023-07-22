@@ -64,61 +64,19 @@ export default {
         },
 
         numflagtype(buttontype){
-            if(buttontype === "+"){
-                if(this.flagplus)
-                    this.flagtypedo("+","+");
-                else if(this.flagminus)
-                    this.flagtypedo("-","+");
-                else if(this.flagmulti)
-                    this.flagtypedo("x","+");
-                else if(this.flagdivided)
-                    this.flagtypedo("/","+");
-                else{
-                    this.flagtypeshow("+");
-                };
-            };
-            if(buttontype === "-"){
-                if(this.flagplus)
-                    this.flagtypedo("+","-");
-                else if(this.flagminus)
-                    this.flagtypedo("-","-");
-                else if(this.flagmulti)
-                    this.flagtypedo("x","-");
-                else if(this.flagdivided)
-                    this.flagtypedo("/","-");
-                else{
-                    this.flagtypeshow("-");
-                };
-            };
-            if(buttontype === "x"){
-                if(this.flagplus)
-                    this.flagtypedo("+","x");
-                else if(this.flagminus)
-                    this.flagtypedo("-","x");
-                else if(this.flagmulti)
-                    this.flagtypedo("x","x");
-                else if(this.flagdivided)
-                    this.flagtypedo("/","x");
-                else{
-                    this.flagtypeshow("x");
-                };
-            };
-            if(buttontype === "/"){
-                if(this.flagplus)
-                    this.flagtypedo("+","/");
-                else if(this.flagminus)
-                    this.flagtypedo("-","/");
-                else if(this.flagmulti)
-                    this.flagtypedo("x","/");
-                else if(this.flagdivided)
-                    this.flagtypedo("/","/");
-                else{
-                    this.flagtypeshow("/");
-                };
-            };
+            if(this.flagplus)
+                this.flagtypedo("+",buttontype);
+            else if(this.flagminus)
+                this.flagtypedo("-",buttontype);
+            else if(this.flagmulti)
+                this.flagtypedo("x",buttontype);
+            else if(this.flagdivided)
+                this.flagtypedo("/",buttontype);
+            else
+                this.flagtypeshow(buttontype);
 
             this.result2 = 0;
-
+            
         },
         numequal(){
             if(this.flagplus)
