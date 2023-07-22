@@ -375,88 +375,88 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-    .container{
-        width: 300px;
-        height: 450px;
-        border-radius: 20px;
-        background-color: #2f3dd5;
-        position: relative;
+    // .container{
+    //     width: 300px;
+    //     height: 450px;
+    //     border-radius: 20px;
+    //     background-color: #2f3dd5;
+    //     position: relative;
 
-        .result-area{
-            display: flex;
-            width: 100%;
-            height: 20%;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-            background-color: #0b1363;
-            position: relative;
+    //     .result-area{
+    //         display: flex;
+    //         width: 100%;
+    //         height: 20%;
+    //         border-top-left-radius: 20px;
+    //         border-top-right-radius: 20px;
+    //         background-color: #0b1363;
+    //         position: relative;
 
-            .p1{
-                font-size: 20px;
-                color: white;
-                position: absolute;
-                top: 10px;
-                right: 30px;
-            }
-            p{
-                font-size: 60px;
-                color: white;
-                position: absolute;
-                top: 20px;
-                right: 30px;
-            }
-        }
-        .button-area{
-            height: 80%;
-            position: relative;
-            margin: auto;
-            justify-content: center;
-            align-items: center;
-            .area{
-                display: flex;
-                .box1{
-                    display: flex;
-                    width: 100px;
-                    height: 50px;
-                    margin: auto;
-                    justify-content: center;
-                    align-items: center;
-                    border-radius: 10px;
-                }
-                .box2{
-                    display: flex;
-                    width: 200px;
-                    height: 50px;
-                    margin: auto 10px;
-                    justify-content: center;
-                    align-items: center;
-                    background: linear-gradient(to right,  rgb(66, 202, 223), rgb(171, 67, 212));
-                    border-radius: 10px;
-                }
-                .box3{
-                    margin: 10px;
-                    background-color: #111972;
-                    border-radius: 10px;
-                }
-            }
-            .btn{
-                font-size: 30px;
-                background-color: #2f3dd5;
-                cursor: pointer;
-            }
-            .btn-num{
-                color: white;
-            }
-            .btn-func{
-                color: #9399e0;
-            }
-            .btn-count{
-                background-color: #111972;
-            }
-            .btn-equal{
-                width: 100px;
-                background:none;
-            }
-        }
-    }
+    //         .p1{
+    //             font-size: 20px;
+    //             color: white;
+    //             position: absolute;
+    //             top: 10px;
+    //             right: 30px;
+    //         }
+    //         p{
+    //             font-size: 60px;
+    //             color: white;
+    //             position: absolute;
+    //             top: 20px;
+    //             right: 30px;
+    //         }
+    //     }
+    //     .button-area{
+    //         height: 80%;
+    //         position: relative;
+    //         margin: auto;
+    //         justify-content: center;
+    //         align-items: center;
+    //         .area{
+    //             display: flex;
+    //             .box1{
+    //                 display: flex;
+    //                 width: 100px;
+    //                 height: 50px;
+    //                 margin: auto;
+    //                 justify-content: center;
+    //                 align-items: center;
+    //                 border-radius: 10px;
+    //             }
+    //             .box2{
+    //                 display: flex;
+    //                 width: 200px;
+    //                 height: 50px;
+    //                 margin: auto 10px;
+    //                 justify-content: center;
+    //                 align-items: center;
+    //                 background: linear-gradient(to right,  rgb(66, 202, 223), rgb(171, 67, 212));
+    //                 border-radius: 10px;
+    //             }
+    //             .box3{
+    //                 margin: 10px;
+    //                 background-color: #111972;
+    //                 border-radius: 10px;
+    //             }
+    //         }
+    //         .btn{
+    //             font-size: 30px;
+    //             background-color: #2f3dd5;
+    //             cursor: pointer;
+    //         }
+    //         .btn-num{
+    //             color: white;
+    //         }
+    //         .btn-func{
+    //             color: #9399e0;
+    //         }
+    //         .btn-count{
+    //             background-color: #111972;
+    //         }
+    //         .btn-equal{
+    //             width: 100px;
+    //             background:none;
+    //         }
+    //     }
+    // }
 </style>
