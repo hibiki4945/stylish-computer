@@ -13,11 +13,16 @@ export default {
             flagmulti: false,
             flagdivided: false,
             flagdot: false,
+            
             area: "flex",
             box1: "flex w-24 h-12 m-auto justify-center items-center rounded-xl",
-            box2: "flex w-52 h-12 my-auto mx-2 justify-center items-center bg-gradient-to-r from-sky-500 to-indigo-500 rounded-xl",
+            box2: "flex w-64 h-12 my-auto mx-2.5 justify-center items-center bg-gradient-to-r from-sky-500 to-indigo-500 rounded-xl",
             box13: "flex w-24 h-12 m-2.5 justify-center items-center rounded-xl bg-emerald-900",
-
+            box4: "flex w-24 h-12 m-2.5 justify-center items-center rounded-xl bg-emerald-400",
+            
+            btnNum: "text-3xl cursor-pointer text-white",
+            btnFunc: "text-3xl cursor-pointer text-white",
+            btnCount: "text-3xl cursor-pointer text-slate-400",
         }
     },
     methods: {
@@ -347,33 +352,33 @@ export default {
 
             <div class="h-5/6 relative m-auto justify-center items-center">
                 <div :class=area>
-                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(7)">7</button></div>
-                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(8)">8</button></div>
-                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(9)">9</button></div>
-                    <div :class=box13><button type="button" class="btn btn-func btn-count" @click="numdivided()">/</button></div>
+                    <div :class=box1><button type="button" :class=btnNum @click="numfunction(7)">7</button></div>
+                    <div :class=box1><button type="button" :class=btnNum @click="numfunction(8)">8</button></div>
+                    <div :class=box1><button type="button" :class=btnNum @click="numfunction(9)">9</button></div>
+                    <div :class=box13><button type="button" :class=btnCount @click="numdivided()">/</button></div>
                 </div>
                 <div :class=area>
-                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(4)">4</button></div>
-                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(5)">5</button></div>
-                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(6)">6</button></div>
-                    <div :class=box13><button type="button" class="btn btn-func btn-count" @click="nummulti()">x</button></div>
+                    <div :class=box1><button type="button" :class=btnNum @click="numfunction(4)">4</button></div>
+                    <div :class=box1><button type="button" :class=btnNum @click="numfunction(5)">5</button></div>
+                    <div :class=box1><button type="button" :class=btnNum @click="numfunction(6)">6</button></div>
+                    <div :class=box13><button type="button" :class=btnCount @click="nummulti()">x</button></div>
                 </div>
                 <div :class=area>
-                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(1)">1</button></div>
-                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(2)">2</button></div>
-                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(3)">3</button></div>
-                    <div :class=box13><button type="button" class="btn btn-func btn-count" @click="numplus()">+</button></div>
+                    <div :class=box1><button type="button" :class=btnNum @click="numfunction(1)">1</button></div>
+                    <div :class=box1><button type="button" :class=btnNum @click="numfunction(2)">2</button></div>
+                    <div :class=box1><button type="button" :class=btnNum @click="numfunction(3)">3</button></div>
+                    <div :class=box13><button type="button" :class=btnCount @click="numplus()">+</button></div>
                 </div> 
                 <div :class=area>
-                    <div :class=box1><button type="button" class="btn btn-num" @click="numfunction(0)">0</button></div>
-                    <div :class=box1><button type="button" class="btn btn-num" @click="num00()">00</button></div>
-                    <div :class=box1><button type="button" class="btn btn-num" @click="numdot()">.</button></div>
-                    <div :class=box13><button type="button" class="btn btn-func btn-count" @click="numminus()">-</button></div>
+                    <div :class=box1><button type="button" :class=btnNum @click="numfunction(0)">0</button></div>
+                    <div :class=box1><button type="button" :class=btnNum @click="num00()">00</button></div>
+                    <div :class=box1><button type="button" :class=btnNum @click="numdot()">.</button></div>
+                    <div :class=box13><button type="button" :class=btnCount @click="numminus()">-</button></div>
                 </div>
                 <div :class=area>
-                    <div :class=box1><button type="button" class="btn btn-func" @click="numac()">AC</button></div>
-                    <div :class=box1><button type="button" class="btn btn-func" @click="numback()">D</button></div>
-                    <div :class=box2><button type="button" class="btn btn-num btn-equal" @click="numequal()">=</button></div>
+                    <div :class=box4><button type="button" :class=btnFunc @click="numac()">AC</button></div>
+                    <div :class=box4><button type="button" :class=btnFunc @click="numback()">D</button></div>
+                    <div :class=box2><button type="button" :class=btnNum @click="numequal()">=</button></div>
                 </div>
             </div>
 
@@ -381,89 +386,5 @@ export default {
     </body>
 </template>
 
-<style lang="scss" scoped>
-    // .container{
-    //     width: 300px;
-    //     height: 450px;
-    //     border-radius: 20px;
-    //     background-color: #2f3dd5;
-    //     position: relative;
-
-    //     .result-area{
-    //         display: flex;
-    //         width: 100%;
-    //         height: 20%;
-    //         border-top-left-radius: 20px;
-    //         border-top-right-radius: 20px;
-    //         background-color: #0b1363;
-    //         position: relative;
-
-    //         .p1{
-    //             font-size: 20px;
-    //             color: white;
-    //             position: absolute;
-    //             top: 10px;
-    //             right: 30px;
-    //         }
-    //         p{
-    //             font-size: 60px;
-    //             color: white;
-    //             position: absolute;
-    //             top: 20px;
-    //             right: 30px;
-    //         }
-    //     }
-    //     .button-area{
-    //         height: 80%;
-    //         position: relative;
-    //         margin: auto;
-    //         justify-content: center;
-    //         align-items: center;
-    //         .area{
-    //             display: flex;
-    //             .box1{
-    //                 display: flex;
-    //                 width: 100px;
-    //                 height: 50px;
-    //                 margin: auto;
-    //                 justify-content: center;
-    //                 align-items: center;
-    //                 border-radius: 10px;
-    //             }
-    //             .box2{
-    //                 display: flex;
-    //                 width: 200px;
-    //                 height: 50px;
-    //                 margin: auto 10px;
-    //                 justify-content: center;
-    //                 align-items: center;
-    //                 background: linear-gradient(to right,  rgb(66, 202, 223), rgb(171, 67, 212));
-    //                 border-radius: 10px;
-    //             }
-    //             .box3{
-    //                 margin: 10px;
-    //                 background-color: #111972;
-    //                 border-radius: 10px;
-    //             }
-    //         }
-    //         .btn{
-    //             font-size: 30px;
-    //             background-color: #2f3dd5;
-    //             cursor: pointer;
-    //         }
-    //         .btn-num{
-    //             color: white;
-    //         }
-    //         .btn-func{
-    //             color: #9399e0;
-    //         }
-    //         .btn-count{
-    //             background-color: #111972;
-    //         }
-    //         .btn-equal{
-    //             width: 100px;
-    //             background:none;
-    //         }
-    //     }
-    // }
+<style>
 </style>
