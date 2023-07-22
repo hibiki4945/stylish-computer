@@ -359,22 +359,15 @@ export default {
                 <div class="box1 box3"><button type="button" class="btn btn-func btn-count" @click="numplus()">+</button></div>
             </div> 
             <div class="area">
-                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(0)">0</button>
-                </div>
-                <div class="box1"><button type="button" class="btn btn-num" @click="num00()">00</button>
-                </div>
-                <div class="box1"><button type="button" class="btn btn-num" @click="numdot()">.</button>
-                </div>
-                <div class="box1 box3"><button type="button" class="btn btn-func btn-count" @click="numminus()">-</button>
-            </div>
+                <div class="box1"><button type="button" class="btn btn-num" @click="numfunction(0)">0</button></div>
+                <div class="box1"><button type="button" class="btn btn-num" @click="num00()">00</button></div>
+                <div class="box1"><button type="button" class="btn btn-num" @click="numdot()">.</button></div>
+                <div class="box1 box3"><button type="button" class="btn btn-func btn-count" @click="numminus()">-</button></div>
             </div>
             <div class="area">
-                <div class="box1"><button type="button" class="btn btn-func" @click="numac()">AC</button>
-                </div>
-                <div class="box1"><button type="button" class="btn btn-func" @click="numback()">D</button>
-                </div>
-                <div class="box2"><button type="button" class="btn btn-num btn-equal" @click="numequal()">=</button>
-            </div>
+                <div class="box1"><button type="button" class="btn btn-func" @click="numac()">AC</button></div>
+                <div class="box1"><button type="button" class="btn btn-func" @click="numback()">D</button></div>
+                <div class="box2"><button type="button" class="btn btn-num btn-equal" @click="numequal()">=</button></div>
             </div>
         </div>
 
