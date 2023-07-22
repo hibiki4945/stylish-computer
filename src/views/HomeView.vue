@@ -16,19 +16,10 @@ export default {
         }
     },
     methods: {
-        num00(){
-            this.numfunction(0);
-            this.numfunction(0);
-        },
         numfunction(num){
             if(this.resultshowup.includes("+")){
                 this.flagplus = true;
                 this.includesplus(num);
-                return;
-            }
-            else if(this.resultshowup.includes("-")){
-                this.flagminus = true;
-                this.includesminus(num);
                 return;
             }
             else if(this.resultshowup.includes("x")){
@@ -39,6 +30,11 @@ export default {
             else if(this.resultshowup.includes("/")){
                 this.flagdivided = true;
                 this.includesdivided(num);
+                return;
+            }
+            else if(this.resultshowup.includes("-")){
+                this.flagminus = true;
+                this.includesminus(num);
                 return;
             }
             if(this.resultshow.includes(".")){
@@ -52,59 +48,21 @@ export default {
             //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
             // }
         },
+        num00(){
+            this.numfunction(0);
+            this.numfunction(0);
+        },
+
         numplus(){
-            if(this.flagplus){
-                let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
-                pownum++;
-                this.flagplus = false;
-                // console.log("flagplus do!");
-                this.result += this.result2;
-                this.result = Math.round(this.result * Math.pow(10, pownum)) / Math.pow(10, pownum);
-                this.resultshowup = this.result+"+";
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
-            else if(this.flagminus){
-                let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
-                pownum++;
-                this.flagminus = false;
-                // console.log("flagminus do!");
-                this.result -= this.result2;
-                this.result = Math.round(this.result * Math.pow(10, pownum)) / Math.pow(10, pownum);
-                this.resultshowup = this.result+"+";
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
-            else if(this.flagmulti){
-                this.flagmulti = false;
-                // console.log("flagminus do!");
-                this.result *= this.result2;
-                this.resultshowup = this.result+"+";
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
-            else if(this.flagdivided){
-                this.flagdivided = false;
-                // console.log("flagminus do!");
-                this.result /= this.result2;
-                this.resultshowup = this.result+"+";
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
+            if(this.flagplus)
+                this.flagtypedo("+","+");
+            else if(this.flagminus)
+                this.flagtypedo("-","+");
+            else if(this.flagmulti)
+                this.flagtypedo("x","+");
+            else if(this.flagdivided)
+                this.flagtypedo("/","+");
             else{
-                // this.flagplus = true;
                 this.resultshow = "0";
                 this.flagdot = false;
                 this.resultshowup = this.result.toString();
@@ -112,64 +70,17 @@ export default {
             }
             this.result2 = 0;
 
-            // var str = "Hello world, welcome to the Runoob.";
-            // var n = str.includes("world", 12);
-            // console.log(n);
-
         },
         numminus(){
-            if(this.flagplus){
-                let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
-                pownum++;
-                this.flagplus = false;
-                // console.log("flagplus do!");
-                this.result += this.result2;
-                this.result = Math.round(this.result * Math.pow(10, pownum)) / Math.pow(10, pownum);
-                this.resultshowup = this.result+"-";
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
-            else if(this.flagminus){
-                let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
-                pownum++;
-                this.flagminus = false;
-                // console.log("flagminus do!");
-                this.result -= this.result2;
-                this.result = Math.round(this.result * Math.pow(10, pownum)) / Math.pow(10, pownum);
-                this.resultshowup = this.result+"-";
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
-            else if(this.flagmulti){
-                this.flagmulti = false;
-                // console.log("flagminus do!");
-                this.result *= this.result2;
-                this.resultshowup = this.result+"-";
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
-            else if(this.flagdivided){
-                this.flagdivided = false;
-                // console.log("flagminus do!");
-                this.result /= this.result2;
-                this.resultshowup = this.result+"-";
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
+            if(this.flagplus)
+                this.flagtypedo("+","-");
+            else if(this.flagminus)
+                this.flagtypedo("-","-");
+            else if(this.flagmulti)
+                this.flagtypedo("x","-");
+            else if(this.flagdivided)
+                this.flagtypedo("/","-");
             else{
-                // this.flagplus = true;
                 this.resultshow = "0";
                 this.flagdot = false;
                 this.resultshowup = this.result.toString();
@@ -177,64 +88,17 @@ export default {
             }
             this.result2 = 0;
 
-            // var str = "Hello world, welcome to the Runoob.";
-            // var n = str.includes("world", 12);
-            // console.log(n);
-
         },
         nummulti(){
-            if(this.flagplus){
-                let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
-                pownum++;
-                this.flagplus = false;
-                // console.log("flagplus do!");
-                this.result += this.result2;
-                this.result = Math.round(this.result * Math.pow(10, pownum)) / Math.pow(10, pownum);
-                this.resultshowup = this.result+"x";
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
-            else if(this.flagminus){
-                let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
-                pownum++;
-                this.flagminus = false;
-                // console.log("flagminus do!");
-                this.result -= this.result2;
-                this.result = Math.round(this.result * Math.pow(10, pownum)) / Math.pow(10, pownum);
-                this.resultshowup = this.result+"x";
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
-            else if(this.flagmulti){
-                this.flagmulti = false;
-                // console.log("flagminus do!");
-                this.result *= this.result2;
-                this.resultshowup = this.result+"x";
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
-            else if(this.flagdivided){
-                this.flagdivided = false;
-                // console.log("flagminus do!");
-                this.result /= this.result2;
-                this.resultshowup = this.result+"x";
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
+            if(this.flagplus)
+                this.flagtypedo("+","x");
+            else if(this.flagminus)
+                this.flagtypedo("-","x");
+            else if(this.flagmulti)
+                this.flagtypedo("x","x");
+            else if(this.flagdivided)
+                this.flagtypedo("/","x");
             else{
-                // this.flagplus = true;
                 this.resultshow = "0";
                 this.flagdot = false;
                 this.resultshowup = this.result.toString();
@@ -242,63 +106,17 @@ export default {
             }
             this.result2 = 0;
 
-            // var str = "Hello world, welcome to the Runoob.";
-            // var n = str.includes("world", 12);
-            // console.log(n);
         },
         numdivided(){
-            if(this.flagplus){
-                let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
-                pownum++;
-                this.flagplus = false;
-                // console.log("flagplus do!");
-                this.result += this.result2;
-                this.result = Math.round(this.result * Math.pow(10, pownum)) / Math.pow(10, pownum);
-                this.resultshowup = this.result+"/";
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
-            else if(this.flagminus){
-                let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
-                pownum++;
-                this.flagminus = false;
-                // console.log("flagminus do!");
-                this.result -= this.result2;
-                this.result = Math.round(this.result * Math.pow(10, pownum)) / Math.pow(10, pownum);
-                this.resultshowup = this.result+"/";
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
-            else if(this.flagmulti){
-                this.flagmulti = false;
-                // console.log("flagminus do!");
-                this.result *= this.result2;
-                this.resultshowup = this.result+"/";
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
-            else if(this.flagdivided){
-                this.flagdivided = false;
-                // console.log("flagminus do!");
-                this.result /= this.result2;
-                this.resultshowup = this.result+"/";
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
+            if(this.flagplus)
+                this.flagtypedo("+","/");
+            else if(this.flagminus)
+                this.flagtypedo("-","/");
+            else if(this.flagmulti)
+                this.flagtypedo("x","/");
+            else if(this.flagdivided)
+                this.flagtypedo("/","/");
             else{
-                // this.flagplus = true;
                 this.resultshow = "0";
                 this.flagdot = false;
                 this.resultshowup = this.result.toString();
@@ -306,86 +124,21 @@ export default {
             }
             this.result2 = 0;
 
-            // var str = "Hello world, welcome to the Runoob.";
-            // var n = str.includes("world", 12);
-            // console.log(n);
         },
         numequal(){
-            // console.log("result:"+this.result);
-            // console.log("result2:"+this.result2);
-            // console.log("resultshow:"+this.resultshow);
-            // console.log("resultshowup:"+this.resultshowup);
-            // console.log("resultshow.length:"+this.resultshow.length);
-            // console.log("resultshowup.length-1:"+(this.resultshowup.length-1));
-            // console.log("resultshow.dot(index)+1:"+(this.resultshow.indexOf('.', 0)+1));
-            // console.log("resultshowup.dot(index)+1:"+(this.resultshowup.indexOf('.', 0)+1));
-            
-            // console.log("resultshow.length - (resultshow.dot(index)+1):"+(this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)));
-            // console.log("resultshowup.length-1 - (resultshowup.dot(index)+1):"+((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)));
-            
-            // console.log("resultshow's dot > resultshowup's dot:"+((this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1))));
-            
-            // console.log("resultshow's dot > resultshowup's dot ? resultshow's dot:resultshowup's -> "+((this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? 100:200));
-            // console.log("resultshow's dot > resultshowup's dot ? resultshow's dot:resultshowup's -> "+((this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1))));
-            
-            let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
-            pownum++;
-            // 'Blue Whale'.indexOf('Whale', 0); 
-            if(this.flagplus){
-                this.flagplus = false;
-                // console.log("flagplus do!");
-                this.result += this.result2;
-                this.result = Math.round(this.result * Math.pow(10, pownum)) / Math.pow(10, pownum);
-                // console.log("this.result + this.result2:"+this.result);
-                this.resultshowup = this.result.toString();
-                // console.log("resultshowup:"+this.resultshowup);
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
-            else if(this.flagminus){
-                this.flagminus = false;
-                // console.log("flagminus do!");
-                this.result -= this.result2;
-                this.result = Math.round(this.result * Math.pow(10, pownum)) / Math.pow(10, pownum);
-                // console.log("this.result + this.result2:"+this.result);
-                this.resultshowup = this.result.toString();
-                // console.log("resultshowup:"+this.resultshowup);
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
-            else if(this.flagmulti){
-                this.flagmulti = false;
-                // console.log("flagminus do!");
-                this.result *= this.result2;
-                this.resultshowup = this.result.toString();
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
-            else if(this.flagdivided){
-                this.flagdivided = false;
-                // console.log("flagminus do!");
-                this.result /= this.result2;
-                this.resultshowup = this.result.toString();
-                this.resultshow = this.result.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            }
+            if(this.flagplus)
+                this.flagtypedo("+","=");
+            else if(this.flagminus)
+                this.flagtypedo("-","=");
+            else if(this.flagmulti)
+                this.flagtypedo("x","=");
+            else if(this.flagdivided)
+                this.flagtypedo("/","=");
+                
             this.result2 = 0;
-            // console.log("resultshow:"+this.resultshow);
-            // console.log("resultshowup:"+this.resultshowup);
-            
+           
         },
+
         numdot(){
             
             if(this.flagdot){
@@ -461,6 +214,7 @@ export default {
             this.resultshowup = this.resultshow;
                 
         },
+
         includesplus(num){
 
             if(this.resultshow.split('.').length - 1){
@@ -530,6 +284,44 @@ export default {
             else{
                 this.resultshow += num.toString();
             }
+            this.resultshowfix = this.resultshow;
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            // }
+        },
+
+        flagtypedo(flagtypebefore, flagtypeafter){
+            let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
+            pownum++;
+            this.flagplus = false;
+            this.flagminus = false;
+            this.flagmulti = false;
+            this.flagdivided = false;
+
+            if(flagtypebefore === "+")
+                this.result += this.result2;
+            else if(flagtypebefore === "-")
+                this.result -= this.result2;
+            else if(flagtypebefore === "x")
+                this.result *= this.result2;
+            else if(flagtypebefore === "/")
+                this.result /= this.result2;
+            
+            if((flagtypebefore === "+") || (flagtypebefore === "-"))
+                this.result = Math.round(this.result * Math.pow(10, pownum)) / Math.pow(10, pownum);
+            
+            if(flagtypeafter === "+")
+                this.resultshowup = this.result+"+";
+            else if(flagtypeafter === "-")
+                this.resultshowup = this.result+"-";
+            else if(flagtypeafter === "x")
+                this.resultshowup = this.result+"x";
+            else if(flagtypeafter === "/")
+                this.resultshowup = this.result+"/";
+            else if(flagtypeafter === "=")
+                this.resultshowup = this.result;
+
+            this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
             // for(let i=3;i<this.resultshowfix.length;i+=4){
             //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
