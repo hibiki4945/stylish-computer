@@ -161,8 +161,8 @@ export default {
 
         includesplus(num){
 
+            this.flagplus = true;
             if(this.resultshow.split('.').length - 1){
-                this.flagplus = true;
                 this.result2 = +(this.resultshow+num.toString());
                 this.resultshow = this.result2.toString();
                 this.resultshowfix = this.resultshow;
@@ -171,7 +171,6 @@ export default {
                 // }
                 return;
             };
-            this.flagplus = true;
             this.result2 = this.result2*10 + +num;
             this.resultshow = this.result2.toString();
             this.resultshowfix = this.resultshow;
@@ -180,6 +179,8 @@ export default {
             // }
         },
         includesminus(num){
+            
+            this.flagminus = true;
             if(this.resultshow.split('.').length - 1){
                 this.result2 = +(this.resultshow+num.toString());
                 this.resultshow = this.result2.toString();
@@ -197,8 +198,15 @@ export default {
             // }
         },
         includesmulti(num){
+            
+            this.flagmulti = true;
             if(this.resultshow.split('.').length - 1){
-                this.resultshow = this.resultshow+num.toString();
+                this.result2 = +(this.resultshow+num.toString());
+                this.resultshow = this.result2.toString();
+                this.resultshowfix = this.resultshow;
+                // for(let i=3;i<this.resultshowfix.length;i+=4){
+                //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+                // }
                 return;
             };
             this.result2 = this.result2*10 + +num;
@@ -209,18 +217,26 @@ export default {
             // }
         },
         includesdivided(num){
+            
+            this.flagdivided = true;
             if(this.resultshow.split('.').length - 1){
-                this.resultshow = this.resultshow+num.toString();
+                this.result2 = +(this.resultshow+num.toString());
+                this.resultshow = this.result2.toString();
+                this.resultshowfix = this.resultshow;
+                // for(let i=3;i<this.resultshowfix.length;i+=4){
+                //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+                // }
                 return;
             };
             this.result2 = this.result2*10 + +num;
             this.resultshow = this.result2.toString();
             this.resultshowfix = this.resultshow;
             // for(let i=3;i<this.resultshowfix.length;i+=4){
-            // this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
             // }
         },
         includesdot(num){
+            // console.log("includesdot!");
             if(num !== 0){
                 this.resultshow += num.toString()
                 this.result = +(this.resultshow);
