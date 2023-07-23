@@ -25,28 +25,30 @@ export default {
             btnCount: "w-full h-full text-3xl cursor-pointer text-slate-400",
         }
     },
+    mounted() {
+        document.addEventListener('keydown', this.handleWatchEnter);
+    },
     methods: {
+        // number functions
         numfunction(num){
+            
             if(this.resultshowup.includes("+")){
-                this.flagplus = true;
-                this.includesplus(num);
+                this.includestype(num, "+");
                 return;
             }
             else if(this.resultshowup.includes("x")){
-                this.flagmulti = true;
-                this.includesmulti(num);
+                this.includestype(num, "x");
                 return;
             }
             else if(this.resultshowup.includes("/")){
-                this.flagdivided = true;
-                this.includesdivided(num);
+                this.includestype(num, "/");
                 return;
             }
-            else if(this.resultshowup.includes("-")){
-                this.flagminus = true;
-                this.includesminus(num);
+            else if(this.resultshowup.includes("-")){  
+                this.includestype(num, "-");
                 return;
             }
+
             if(this.resultshow.includes(".")){
                 this.includesdot(num);
                 return;
@@ -54,16 +56,16 @@ export default {
             this.result = this.result*10 + +num;
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
+            //this.resultseparater();
         },
         num00(){
             this.numfunction(0);
             this.numfunction(0);
         },
 
+        // count functions(call)
         numflagtype(buttontype){
+
             if(this.flagplus)
                 this.flagtypedo("+",buttontype);
             else if(this.flagminus)
@@ -74,8 +76,11 @@ export default {
                 this.flagtypedo("/",buttontype);
             else
                 this.flagtypeshow(buttontype);
+            
 
             this.result2 = 0;
+            this.resultshow = "0";
+            this.resultshowfix = "0";
 
         },
         numequal(){
@@ -92,6 +97,7 @@ export default {
            
         },
 
+        // others functions
         numdot(){
             
             if(this.flagdot){
@@ -101,6 +107,7 @@ export default {
             this.flagdot = true;
             this.resultshow += ".";
             this.resultshowfix = this.resultshow;
+            //this.resultseparater();
         },
         numac(){
             this.result = 0;
@@ -118,16 +125,12 @@ export default {
 
         },
         numback(){
-            
-            // console.log("resultshow:"+this.resultshow);
-            // console.log("resultshowup:"+this.resultshowup);
-
-            if(this.resultshowup.includes("+")){
-
+            if(this.flagplus || this.flagminus || this.flagmulti || this.flagdivided){
+                // console.log(this.resultshowfix);
                 if((this.resultshow[this.resultshow.length - 2] === ".") || (this.resultshow[this.resultshow.length - 2] === "0")){
-                    // console.log("lastdot!");
                     this.resultshow = this.resultshow.substring(0, this.resultshow.length - 1)
-                    this.resultshowup = this.resultshow;
+                    this.resultshowfix = this.resultshow;
+                    //this.resultseparater();
                     return;
                 }
                 if(this.resultshow[this.resultshow.length - 1] === "."){
@@ -135,24 +138,20 @@ export default {
                 }
                 this.result2 = +(this.resultshow.substring(0, this.resultshow.length - 1));
                 this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-                // this.resultshowup = this.resultshow;
-                return;
-            }
-            else if(this.resultshowup.includes("-")){
-                // console.log("flagminus!");
-                this.flagminus = true;
-                this.result2 = Math.floor(this.result2/10);
-                this.resultshow += this.result2.toString();
+                this.resultshowfix = this.resultshow;
+                //this.resultseparater();
+                // for(let i=3;i<this.resultshowfix.length;i+=4){
+                //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+                // }
+                // console.log("1234");
                 return;
             }
             if((this.resultshow[this.resultshow.length - 2] === ".") || (this.resultshow[this.resultshow.length - 2] === "0")){
-                // console.log("lastdot!");
                 this.resultshow = this.resultshow.substring(0, this.resultshow.length - 1)
-                this.resultshowup = this.resultshow;
+                this.resultshowup = "";
+                this.resultshowfix = this.resultshow;
+                //this.resultseparater();
+                // console.log("123123");
                 return;
             }
             if(this.resultshow[this.resultshow.length - 1] === "."){
@@ -161,73 +160,47 @@ export default {
             this.result = +(this.resultshow.substring(0, this.resultshow.length - 1));
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
+            //this.resultseparater();
+            // console.log(this.resultshowfix);
             // for(let i=3;i<this.resultshowfix.length;i+=4){
             //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
             // }
-            this.resultshowup = this.resultshow;
+            this.resultshowup = "";
                 
         },
 
-        includesplus(num){
+        // number includes function
+        includestype(num, type){
+            
+            if(type === "+")
+                this.flagplus = true;
+            if(type === "-")
+                this.flagminus = true;
+            if(type === "x")
+                this.flagmulti = true;
+            if(type === "/")
+                this.flagdivided = true;
 
             if(this.resultshow.split('.').length - 1){
-                this.flagplus = true;
-                this.result2 = +(this.resultshow+num.toString());
-                this.resultshow = this.result2.toString();
+                // console.log("1: "+this.result2);
+                if(num !== 0){
+                    this.result2 = +(this.resultshow+num.toString());
+                    this.resultshow = this.result2.toString();
+                }
+                else{
+                    this.resultshow = this.resultshow+num.toString();
+                }
                 this.resultshowfix = this.resultshow;
-                // for(let i=3;i<this.resultshowfix.length;i+=4){
-                //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-                // }
+                //this.resultseparater();
                 return;
             };
-            this.flagplus = true;
+            // console.log("2: "+this.result2);
             this.result2 = this.result2*10 + +num;
+            // console.log("2: "+this.result2);
             this.resultshow = this.result2.toString();
             this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-        },
-        includesminus(num){
-            if(this.resultshow.split('.').length - 1){
-                this.result2 = +(this.resultshow+num.toString());
-                this.resultshow = this.result2.toString();
-                this.resultshowfix = this.resultshow;
-                // for(let i=3;i<this.resultshowfix.length;i+=4){
-                //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-                // }
-                return;
-            };
-            this.result2 = this.result2*10 + +num;
-            this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-        },
-        includesmulti(num){
-            if(this.resultshow.split('.').length - 1){
-                this.resultshow = this.resultshow+num.toString();
-                return;
-            };
-            this.result2 = this.result2*10 + +num;
-            this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-        },
-        includesdivided(num){
-            if(this.resultshow.split('.').length - 1){
-                this.resultshow = this.resultshow+num.toString();
-                return;
-            };
-            this.result2 = this.result2*10 + +num;
-            this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            // this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
+            //this.resultseparater();
+            
         },
         includesdot(num){
             if(num !== 0){
@@ -238,14 +211,21 @@ export default {
                 this.resultshow += num.toString();
             }
             this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
+            //this.resultseparater();
+            for(let i=3;i<this.resultshowfix.length;i+=4){
+                console.log("this.resultshow.indexOf(.)"+this.resultshow.indexOf("."));
+                console.log(i);
+                if(this.resultshow.indexOf(".") > i)
+                    this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+                    //this.resultseparater();
+                }
         }, 
 
+        // count functions
         flagtypedo(flagtypebefore, flagtypeafter){
             let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
-            pownum++;
+            let pownum2 = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) + ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
+            
             this.flagplus = false;
             this.flagminus = false;
             this.flagmulti = false;
@@ -260,8 +240,10 @@ export default {
             else if(flagtypebefore === "/")
                 this.result /= this.result2;
             
-            if((flagtypebefore === "+") || (flagtypebefore === "-"))
-                this.result = Math.round(this.result * Math.pow(10, pownum)) / Math.pow(10, pownum);
+            if((flagtypebefore === "+") || (flagtypebefore === "-") || (flagtypebefore === "/"))
+                this.result = Math.round(this.result * Math.pow(10, pownum+1)) / Math.pow(10, pownum+1);
+            else if(flagtypebefore === "x")
+                this.result = Math.round(this.result * Math.pow(10, pownum2+1)) / Math.pow(10, pownum2+1);
             
             if(flagtypeafter === "+")
                 this.resultshowup = this.result+"+";
@@ -276,14 +258,14 @@ export default {
 
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
+            //this.resultseparater();
         },
+
+        // show functions
         flagtypeshow(flagtype){
-            this.resultshow = "0";
             this.flagdot = false;
             this.resultshowup = this.result.toString();
+
             if(flagtype === "+")
                 this.resultshowup += "+";
             if(flagtype === "-")
@@ -293,12 +275,63 @@ export default {
             if(flagtype === "/")
                 this.resultshowup += "/";
         },
+        resultseparater(){
+            for(let i=3;i<this.resultshowfix.length;i+=4){
+                console.log("this.resultshow.indexOf(.)"+this.resultshow.indexOf("."));
+                console.log(i);
+                if(this.resultshow.indexOf(".") > i)
+                    this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+                    //this.resultseparater();
+            }
+        },
+
+        // keyboard input function
+        handleWatchEnter(e){
+            let key = window.Event ? e.keyCode : e.which;
+            // console.log(key);
+            if(key === 97)
+                this.numfunction(1);
+            else if(key === 98)
+                this.numfunction(2);
+            else if(key === 99)
+                this.numfunction(3);
+            else if(key === 100)
+                this.numfunction(4);
+            else if(key === 101)
+                this.numfunction(5);
+            else if(key === 102)
+                this.numfunction(6);
+            else if(key === 103)
+                this.numfunction(7);
+            else if(key === 104)
+                this.numfunction(8);
+            else if(key === 105)
+                this.numfunction(9);
+            else if(key === 96)
+                this.numfunction(0);
+            else if(key === 110)
+                this.numdot();
+            else if(key === 111)
+                this.numflagtype('/');
+            else if(key === 106)
+                this.numflagtype('x');
+            else if(key === 109)
+                this.numflagtype('-');
+            else if(key === 107)
+                this.numflagtype('+');
+            else if(key === 13)
+                this.numflagtype('=');
+            else if(key === 8)
+                this.numback();
+            else if(key === 46)
+                this.numac();
+        },
     },
 }
 </script>
 
 <template>
-    <body class="flex w-full h-screen m-auto justify-center items-center bg-black relative">
+    <body @keyup.enter=clickEnter() class="flex w-full h-screen m-auto justify-center items-center bg-black relative">
         <div class="w-80 h-5/6 rounded-2xl bg-cyan-700 relative">
 
             <div class="flex w-full h-1/5 rounded-t-2xl bg-cyan-950 relative">
