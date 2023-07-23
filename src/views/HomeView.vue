@@ -197,6 +197,9 @@ export default {
         flagtypedo(flagtypebefore, flagtypeafter){
             let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
             pownum++;
+            let pownum2 = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) + ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
+            pownum2++;
+
             this.flagplus = false;
             this.flagminus = false;
             this.flagmulti = false;
@@ -211,8 +214,10 @@ export default {
             else if(flagtypebefore === "/")
                 this.result /= this.result2;
             
-            if((flagtypebefore === "+") || (flagtypebefore === "-"))
+            if((flagtypebefore === "+") || (flagtypebefore === "-") || (flagtypebefore === "/"))
                 this.result = Math.round(this.result * Math.pow(10, pownum)) / Math.pow(10, pownum);
+            else if(flagtypebefore === "x")
+                this.result = Math.round(this.result * Math.pow(10, pownum2)) / Math.pow(10, pownum2);
             
             if(flagtypeafter === "+")
                 this.resultshowup = this.result+"+";
@@ -227,12 +232,13 @@ export default {
 
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
+            console.log(this.resultshowfix);
             // for(let i=3;i<this.resultshowfix.length;i+=4){
             //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
             // }
-            console.log("this.resultshowup:(=)"+this.resultshowup);
-            console.log("this.resultshow:(=)"+this.resultshow);
-            console.log("this.resultshowfix:(=)"+this.resultshowfix);
+            // console.log("this.resultshowup:(=)"+this.resultshowup);
+            // console.log("this.resultshow:(=)"+this.resultshow);
+            // console.log("this.resultshowfix:(=)"+this.resultshowfix);
         },
         flagtypeshow(flagtype){
             this.resultshow = "0";
