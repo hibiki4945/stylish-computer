@@ -33,22 +33,16 @@ export default {
         numfunction(num){
             
             // console.log("this.resultshowfix1: "+this.resultshowfix);
-            if(this.resultshowup.includes("+")){
+            if(this.resultshowup.includes("+"))
                 this.includestype(num, "+");
-                return;
-            }
-            else if(this.resultshowup.includes("x")){
+            else if(this.resultshowup.includes("x"))
                 this.includestype(num, "x");
-                return;
-            }
-            else if(this.resultshowup.includes("/")){
+            else if(this.resultshowup.includes("/"))
                 this.includestype(num, "/");
-                return;
-            }
-            else if(this.resultshowup.includes("-")){
+            else if(this.resultshowup.includes("-"))
                 this.includestype(num, "-");
+            if(this.resultshowup.includes("+" || "x" || "/" || "-"))
                 return;
-            }
 
             // console.log("this.resultshowfix2: "+this.resultshowfix);
             if(this.resultshow.includes(".")){
