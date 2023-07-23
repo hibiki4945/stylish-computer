@@ -56,7 +56,7 @@ export default {
             this.result = this.result*10 + +num;
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            //this.resultseparater();
+            this.resultseparater();
         },
         num00(){
             this.numfunction(0);
@@ -107,7 +107,7 @@ export default {
             this.flagdot = true;
             this.resultshow += ".";
             this.resultshowfix = this.resultshow;
-            //this.resultseparater();
+            this.resultseparater();
         },
         numac(){
             this.result = 0;
@@ -199,7 +199,7 @@ export default {
             // console.log("2: "+this.result2);
             this.resultshow = this.result2.toString();
             this.resultshowfix = this.resultshow;
-            //this.resultseparater();
+            this.resultseparater();
             
         },
         includesdot(num){
@@ -211,14 +211,7 @@ export default {
                 this.resultshow += num.toString();
             }
             this.resultshowfix = this.resultshow;
-            //this.resultseparater();
-            for(let i=3;i<this.resultshowfix.length;i+=4){
-                console.log("this.resultshow.indexOf(.)"+this.resultshow.indexOf("."));
-                console.log(i);
-                if(this.resultshow.indexOf(".") > i)
-                    this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-                    //this.resultseparater();
-                }
+            this.resultseparater();
         }, 
 
         // count functions
@@ -258,7 +251,7 @@ export default {
 
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            //this.resultseparater();
+            this.resultseparater();
         },
 
         // show functions 
@@ -279,9 +272,12 @@ export default {
             for(let i=3;i<this.resultshowfix.length;i+=4){
                 console.log("this.resultshow.indexOf(.)"+this.resultshow.indexOf("."));
                 console.log(i);
-                if(this.resultshow.indexOf(".") > i)
+                if(this.resultshow.includes(".")){
+                    if(this.resultshow.indexOf(".") > i)
+                        this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+                }
+                else
                     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-                    //this.resultseparater();
             }
         },
 
