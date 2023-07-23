@@ -44,7 +44,8 @@ export default {
                 this.includestype(num, "/");
                 return;
             }
-            else if(this.resultshowup.includes("-")){                this.includestype(num, "-");
+            else if(this.resultshowup.includes("-")){  
+                this.includestype(num, "-");
                 return;
             }
 
