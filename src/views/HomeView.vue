@@ -143,7 +143,12 @@ export default {
                 if(this.resultshow[this.resultshow.length - 1] === "."){
                     this.flagdot = false;
                 }
-                this.result2 = +(this.resultshow.substring(0, this.resultshow.length - 1));
+
+                if((this.resultshow.substring(0, this.resultshow.length - 1)) !== "-")
+                    this.result2 = +(this.resultshow.substring(0, this.resultshow.length - 1));
+                else
+                    this.result2 = 0;
+
                 this.resultshow = this.result2.toString();
                 this.resultshowfix = this.resultshow;
                 if(this.resultshow.length > 7)
@@ -166,7 +171,12 @@ export default {
             if(this.resultshow[this.resultshow.length - 1] === "."){
                 this.flagdot = false;
             }
-            this.result = +(this.resultshow.substring(0, this.resultshow.length - 1));
+            
+            if((this.resultshow.substring(0, this.resultshow.length - 1)) !== "-")
+                    this.result = +(this.resultshow.substring(0, this.resultshow.length - 1));
+                else
+                    this.result = 0;
+            
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
             this.resultshowup = "";
