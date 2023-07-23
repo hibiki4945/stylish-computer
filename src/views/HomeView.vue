@@ -29,6 +29,7 @@ export default {
         document.addEventListener('keydown', this.handleWatchEnter);
     },
     methods: {
+        // number functions
         numfunction(num){
             if(this.resultshowup.includes("+"))
                 this.includestype(num, "+");
@@ -55,6 +56,7 @@ export default {
             this.numfunction(0);
         },
 
+        // count functions(call)
         numflagtype(buttontype){
             if(this.flagplus)
                 this.flagtypedo("+",buttontype);
@@ -84,6 +86,7 @@ export default {
            
         },
 
+        // others functions
         numdot(){
             
             if(this.flagdot){
@@ -148,6 +151,7 @@ export default {
                 
         },
 
+        // number includes function
         includestype(num, type){
             if(type === "+")
                 this.flagplus = true;
@@ -189,6 +193,7 @@ export default {
             // }
         }, 
 
+        // count functions
         flagtypedo(flagtypebefore, flagtypeafter){
             let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
             pownum++;
@@ -243,6 +248,7 @@ export default {
                 this.resultshowup += "/";
         },
 
+        // keyboard input function
         handleWatchEnter(e){
             let key = window.Event ? e.keyCode : e.which;
             // console.log(key);
