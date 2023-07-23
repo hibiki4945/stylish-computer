@@ -32,7 +32,6 @@ export default {
         // number functions
         numfunction(num){
             
-            // console.log("this.resultshowfix1: "+this.resultshowfix);
             if(this.resultshowup.includes("+")){
                 this.includestype(num, "+");
                 return;
@@ -49,7 +48,6 @@ export default {
                 return;
             }
 
-            // console.log("123");
             if(this.resultshow.includes(".")){
                 this.includesdot(num);
                 return;
@@ -68,7 +66,6 @@ export default {
 
         // count functions(call)
         numflagtype(buttontype){
-            // console.log("numflagtype!");
 
             if(this.flagplus)
                 this.flagtypedo("+",buttontype);
@@ -168,9 +165,6 @@ export default {
 
         // number includes function
         includestype(num, type){
-
-            // console.log("includestype!");
-            // console.log(this.result2);
             
             if(type === "+")
                 this.flagplus = true;
@@ -182,31 +176,24 @@ export default {
                 this.flagdivided = true;
 
             if(this.resultshow.split('.').length - 1){
-                this.result2 = +(this.resultshow+num.toString());
-                this.resultshow = this.result2.toString();
+                // console.log("1: "+this.result2);
+                if(num !== 0){
+                    this.result2 = +(this.resultshow+num.toString());
+                    this.resultshow = this.result2.toString();
+                }
+                else{
+                    this.resultshow = this.resultshow+num.toString();
+                }
                 this.resultshowfix = this.resultshow;
-                // console.log(this.result2);
-                // console.log("includestype done(.)!");
-                // for(let i=3;i<this.resultshowfix.length;i+=4){
-                //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-                // }
                 return;
             };
-
+            // console.log("2: "+this.result2);
             this.result2 = this.result2*10 + +num;
+            // console.log("2: "+this.result2);
             this.resultshow = this.result2.toString();
             this.resultshowfix = this.resultshow;
-
-            // console.log(this.result2);
-            // console.log(this.resultshow);
-            // console.log(this.resultshowfix);
-            // console.log("includestype done!");
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
         },
         includesdot(num){
-            // console.log("includesdot!");
             if(num !== 0){
                 this.resultshow += num.toString()
                 this.result = +(this.resultshow);
@@ -222,22 +209,13 @@ export default {
 
         // count functions
         flagtypedo(flagtypebefore, flagtypeafter){
-            // console.log("flagtypedo!");
             let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
             let pownum2 = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) + ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
-            
-            // this.result2 = 0;
-            // this.resultshow = "0";
-            // this.resultshowfix = this.resultshow;
-
-            // this.resultshowfix = "0";
             
             this.flagplus = false;
             this.flagminus = false;
             this.flagmulti = false;
             this.flagdivided = false;
-
-            // console.log(this.resultshowfix);
 
             if(flagtypebefore === "+")
                 this.result += this.result2;
@@ -266,24 +244,10 @@ export default {
 
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            
-            // this.resultshowfix = "0";
-            // console.log(this.resultshowfix);
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-            // console.log("this.resultshowup:(=)"+this.resultshowup);
-            // console.log("this.resultshow:(=)"+this.resultshow);
-            // console.log("this.resultshowfix:(=)"+this.resultshowfix);
         },
         flagtypeshow(flagtype){
-            // console.log("flagtypeshow!");
             this.flagdot = false;
             this.resultshowup = this.result.toString();
-
-            // this.result2 = 0;
-            // this.resultshow = "0";
-            // this.resultshowfix = this.resultshow;
 
             if(flagtype === "+")
                 this.resultshowup += "+";
