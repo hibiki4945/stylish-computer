@@ -30,26 +30,15 @@ export default {
     },
     methods: {
         numfunction(num){
-            if(this.resultshowup.includes("+")){
-                this.flagplus = true;
-                this.includesplus(num);
-                return;
-            }
-            else if(this.resultshowup.includes("x")){
-                this.flagmulti = true;
-                this.includesmulti(num);
-                return;
-            }
-            else if(this.resultshowup.includes("/")){
-                this.flagdivided = true;
-                this.includesdivided(num);
-                return;
-            }
-            else if(this.resultshowup.includes("-")){
-                this.flagminus = true;
-                this.includesminus(num);
-                return;
-            }
+            if(this.resultshowup.includes("+"))
+                this.includestype(num, "+");
+            else if(this.resultshowup.includes("x"))
+                this.includestype(num, "x");
+            else if(this.resultshowup.includes("/"))
+                this.includestype(num, "/");
+            else if(this.resultshowup.includes("-"))
+                this.includestype(num, "-");
+
             if(this.resultshow.includes(".")){
                 this.includesdot(num);
                 return;
@@ -159,66 +148,16 @@ export default {
                 
         },
 
-        includesplus(num){
+        includestype(num, type){
+            if(type === "+")
+                this.flagplus = true;
+            if(type === "-")
+                this.flagminus = true;
+            if(type === "x")
+                this.flagmulti = true;
+            if(type === "/")
+                this.flagdivided = true;
 
-            this.flagplus = true;
-            if(this.resultshow.split('.').length - 1){
-                this.result2 = +(this.resultshow+num.toString());
-                this.resultshow = this.result2.toString();
-                this.resultshowfix = this.resultshow;
-                // for(let i=3;i<this.resultshowfix.length;i+=4){
-                //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-                // }
-                return;
-            };
-            this.result2 = this.result2*10 + +num;
-            this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-        },
-        includesminus(num){
-            
-            this.flagminus = true;
-            if(this.resultshow.split('.').length - 1){
-                this.result2 = +(this.resultshow+num.toString());
-                this.resultshow = this.result2.toString();
-                this.resultshowfix = this.resultshow;
-                // for(let i=3;i<this.resultshowfix.length;i+=4){
-                //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-                // }
-                return;
-            };
-            this.result2 = this.result2*10 + +num;
-            this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-        },
-        includesmulti(num){
-            
-            this.flagmulti = true;
-            if(this.resultshow.split('.').length - 1){
-                this.result2 = +(this.resultshow+num.toString());
-                this.resultshow = this.result2.toString();
-                this.resultshowfix = this.resultshow;
-                // for(let i=3;i<this.resultshowfix.length;i+=4){
-                //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-                // }
-                return;
-            };
-            this.result2 = this.result2*10 + +num;
-            this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
-        },
-        includesdivided(num){
-            
-            this.flagdivided = true;
             if(this.resultshow.split('.').length - 1){
                 this.result2 = +(this.resultshow+num.toString());
                 this.resultshow = this.result2.toString();
