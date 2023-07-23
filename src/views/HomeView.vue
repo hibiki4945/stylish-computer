@@ -261,7 +261,7 @@ export default {
             //this.resultseparater();
         },
 
-        // show functions
+        // show functions 
         flagtypeshow(flagtype){
             this.flagdot = false;
             this.resultshowup = this.result.toString();
