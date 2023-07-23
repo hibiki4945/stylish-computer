@@ -31,6 +31,8 @@ export default {
     methods: {
         // number functions
         numfunction(num){
+            
+            // console.log("this.resultshowfix1: "+this.resultshowfix);
             if(this.resultshowup.includes("+"))
                 this.includestype(num, "+");
             else if(this.resultshowup.includes("x"))
@@ -40,6 +42,7 @@ export default {
             else if(this.resultshowup.includes("-"))
                 this.includestype(num, "-");
 
+            // console.log("this.resultshowfix2: "+this.resultshowfix);
             if(this.resultshow.includes(".")){
                 this.includesdot(num);
                 return;
@@ -153,6 +156,9 @@ export default {
 
         // number includes function
         includestype(num, type){
+
+            console.log("this.resultshowfix1: "+this.resultshowfix);
+            
             if(type === "+")
                 this.flagplus = true;
             if(type === "-")
@@ -196,14 +202,16 @@ export default {
         // count functions
         flagtypedo(flagtypebefore, flagtypeafter){
             let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
-            pownum++;
             let pownum2 = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) + ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
-            pownum2++;
-
+            
+            // this.resultshowfix = "0";
+            
             this.flagplus = false;
             this.flagminus = false;
             this.flagmulti = false;
             this.flagdivided = false;
+
+            // console.log(this.resultshowfix);
 
             if(flagtypebefore === "+")
                 this.result += this.result2;
@@ -215,9 +223,9 @@ export default {
                 this.result /= this.result2;
             
             if((flagtypebefore === "+") || (flagtypebefore === "-") || (flagtypebefore === "/"))
-                this.result = Math.round(this.result * Math.pow(10, pownum)) / Math.pow(10, pownum);
+                this.result = Math.round(this.result * Math.pow(10, pownum+1)) / Math.pow(10, pownum+1);
             else if(flagtypebefore === "x")
-                this.result = Math.round(this.result * Math.pow(10, pownum2)) / Math.pow(10, pownum2);
+                this.result = Math.round(this.result * Math.pow(10, pownum2+1)) / Math.pow(10, pownum2+1);
             
             if(flagtypeafter === "+")
                 this.resultshowup = this.result+"+";
@@ -232,7 +240,9 @@ export default {
 
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            console.log(this.resultshowfix);
+            
+            // this.resultshowfix = "0";
+            // console.log(this.resultshowfix);
             // for(let i=3;i<this.resultshowfix.length;i+=4){
             //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
             // }
@@ -241,9 +251,11 @@ export default {
             // console.log("this.resultshowfix:(=)"+this.resultshowfix);
         },
         flagtypeshow(flagtype){
-            this.resultshow = "0";
             this.flagdot = false;
             this.resultshowup = this.result.toString();
+            this.result = 0;
+            this.resultshow = "0";
+            this.resultshowfix = this.resultshow;
             if(flagtype === "+")
                 this.resultshowup += "+";
             if(flagtype === "-")
