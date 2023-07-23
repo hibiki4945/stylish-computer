@@ -56,7 +56,10 @@ export default {
             this.result = this.result*10 + +num;
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            this.resultseparater();
+            if(this.resultshowfix.length > 7)
+                this.resultshowfix = this.result.toExponential(2);
+            else
+                this.resultseparater();
         },
         num00(){
             this.numfunction(0);
@@ -106,7 +109,10 @@ export default {
             this.flagdot = true;
             this.resultshow += ".";
             this.resultshowfix = this.resultshow;
-            this.resultseparater();
+            if(this.resultshowfix.length > 7)
+                this.resultshowfix = this.result.toExponential(2);
+            else
+                this.resultseparater();
         },
         numac(){
             this.result = 0;
@@ -128,7 +134,10 @@ export default {
                 if((this.resultshow[this.resultshow.length - 2] === ".") || (this.resultshow[this.resultshow.length - 2] === "0")){
                     this.resultshow = this.resultshow.substring(0, this.resultshow.length - 1)
                     this.resultshowfix = this.resultshow;
-                    this.resultseparater();
+                    if(this.resultshowfix.length > 7)
+                        this.resultshowfix = this.result.toExponential(2);
+                    else
+                        this.resultseparater();
                     return;
                 }
                 if(this.resultshow[this.resultshow.length - 1] === "."){
@@ -137,7 +146,10 @@ export default {
                 this.result2 = +(this.resultshow.substring(0, this.resultshow.length - 1));
                 this.resultshow = this.result2.toString();
                 this.resultshowfix = this.resultshow;
-                this.resultseparater();
+                if(this.resultshowfix.length > 7)
+                    this.resultshowfix = this.result2.toExponential(2);
+                else
+                    this.resultseparater();
                 return;
             }
             if((this.resultshow[this.resultshow.length - 2] === ".") || (this.resultshow[this.resultshow.length - 2] === "0")){
@@ -145,7 +157,6 @@ export default {
                 this.resultshowup = "";
                 this.resultshowfix = this.resultshow;
                 //this.resultseparater();
-                // console.log("123123");
                 return;
             }
             if(this.resultshow[this.resultshow.length - 1] === "."){
@@ -155,10 +166,6 @@ export default {
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
             //this.resultseparater();
-            // console.log(this.resultshowfix);
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
             this.resultshowup = "";
                 
         },
@@ -184,13 +191,19 @@ export default {
                     this.resultshow = this.resultshow+num.toString();
                 }
                 this.resultshowfix = this.resultshow;
-                this.resultseparater();
+                if(this.resultshowfix.length > 7)
+                    this.resultshowfix = this.result2.toExponential(2);
+                else
+                    this.resultseparater();
                 return;
             };
             this.result2 = this.result2*10 + +num;
             this.resultshow = this.result2.toString();
             this.resultshowfix = this.resultshow;
-            this.resultseparater();
+            if(this.resultshowfix.length > 7)
+                this.resultshowfix = this.result2.toExponential(2);
+            else
+                this.resultseparater();
             
         },
         includesdot(num){
@@ -202,7 +215,10 @@ export default {
                 this.resultshow += num.toString();
             }
             this.resultshowfix = this.resultshow;
-            this.resultseparater();
+            if(this.resultshowfix.length > 7)
+                this.resultshowfix = this.result.toExponential(2);
+            else
+                this.resultseparater();
         }, 
 
         // count functions
@@ -242,7 +258,11 @@ export default {
 
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            this.resultseparater();
+            
+            if(this.resultshowfix.length > 7)
+                this.resultshowfix = this.result.toExponential(2);
+            else
+                this.resultseparater();
         },
 
         // show functions 
@@ -261,8 +281,6 @@ export default {
         },
         resultseparater(){
             for(let i=3;i<this.resultshowfix.length;i+=4){
-                console.log("this.resultshow.indexOf(.)"+this.resultshow.indexOf("."));
-                console.log(i);
                 if(this.resultshow.includes(".")){
                     if(this.resultshow.indexOf(".") > i)
                         this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
