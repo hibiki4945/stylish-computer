@@ -121,16 +121,11 @@ export default {
 
         },
         numback(){
-            
-            // console.log("resultshow:"+this.resultshow);
-            console.log("resultshowup:"+this.resultshowup);
-
-            if(this.resultshowup.includes("+")){
-
+            console.log("this.flagplus:"+this.flagplus);
+            if(this.flagplus || this.flagminus || this.flagmulti || this.flagdivided){
                 if((this.resultshow[this.resultshow.length - 2] === ".") || (this.resultshow[this.resultshow.length - 2] === "0")){
-                    // console.log("lastdot!");
                     this.resultshow = this.resultshow.substring(0, this.resultshow.length - 1)
-                    this.resultshowup = this.resultshow;
+                    // this.resultshowup = this.resultshow;
                     return;
                 }
                 if(this.resultshow[this.resultshow.length - 1] === "."){
@@ -138,18 +133,11 @@ export default {
                 }
                 this.result2 = +(this.resultshow.substring(0, this.resultshow.length - 1));
                 this.resultshow = this.result2.toString();
-            this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
+                this.resultshowfix = this.resultshow;
+                // for(let i=3;i<this.resultshowfix.length;i+=4){
+                //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+                // }
                 // this.resultshowup = this.resultshow;
-                return;
-            }
-            else if(this.resultshowup.includes("-")){
-                // console.log("flagminus!");
-                this.flagminus = true;
-                this.result2 = Math.floor(this.result2/10);
-                this.resultshow += this.result2.toString();
                 return;
             }
             if((this.resultshow[this.resultshow.length - 2] === ".") || (this.resultshow[this.resultshow.length - 2] === "0")){
@@ -282,6 +270,9 @@ export default {
             // for(let i=3;i<this.resultshowfix.length;i+=4){
             //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
             // }
+            console.log("this.resultshowup:(=)"+this.resultshowup);
+            console.log("this.resultshow:(=)"+this.resultshow);
+            console.log("this.resultshowfix:(=)"+this.resultshowfix);
         },
         flagtypeshow(flagtype){
             this.resultshow = "0";
@@ -299,7 +290,7 @@ export default {
 
         handleWatchEnter(e){
             let key = window.Event ? e.keyCode : e.which;
-            console.log(key);
+            // console.log(key);
             if(key === 97)
                 this.numfunction(1);
             else if(key === 98)
