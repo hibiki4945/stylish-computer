@@ -25,6 +25,9 @@ export default {
             btnCount: "w-full h-full text-3xl cursor-pointer text-slate-400",
         }
     },
+    mounted() {
+        document.addEventListener('keydown', this.handleWatchEnter);
+    },
     methods: {
         numfunction(num){
             if(this.resultshowup.includes("+")){
@@ -120,7 +123,7 @@ export default {
         numback(){
             
             // console.log("resultshow:"+this.resultshow);
-            // console.log("resultshowup:"+this.resultshowup);
+            console.log("resultshowup:"+this.resultshowup);
 
             if(this.resultshowup.includes("+")){
 
@@ -293,12 +296,53 @@ export default {
             if(flagtype === "/")
                 this.resultshowup += "/";
         },
+
+        handleWatchEnter(e){
+            let key = window.Event ? e.keyCode : e.which;
+            console.log(key);
+            if(key === 97)
+                this.numfunction(1);
+            else if(key === 98)
+                this.numfunction(2);
+            else if(key === 99)
+                this.numfunction(3);
+            else if(key === 100)
+                this.numfunction(4);
+            else if(key === 101)
+                this.numfunction(5);
+            else if(key === 102)
+                this.numfunction(6);
+            else if(key === 103)
+                this.numfunction(7);
+            else if(key === 104)
+                this.numfunction(8);
+            else if(key === 105)
+                this.numfunction(9);
+            else if(key === 96)
+                this.numfunction(0);
+            else if(key === 110)
+                this.numdot();
+            else if(key === 111)
+                this.numflagtype('/');
+            else if(key === 106)
+                this.numflagtype('x');
+            else if(key === 109)
+                this.numflagtype('-');
+            else if(key === 107)
+                this.numflagtype('+');
+            else if(key === 13)
+                this.numflagtype('=');
+            else if(key === 8)
+                this.numback();
+            else if(key === 46)
+                this.numac();
+        },
     },
 }
 </script>
 
 <template>
-    <body class="flex w-full h-screen m-auto justify-center items-center bg-black relative">
+    <body @keyup.enter=clickEnter() class="flex w-full h-screen m-auto justify-center items-center bg-black relative">
         <div class="w-80 h-5/6 rounded-2xl bg-cyan-700 relative">
 
             <div class="flex w-full h-1/5 rounded-t-2xl bg-cyan-950 relative">
