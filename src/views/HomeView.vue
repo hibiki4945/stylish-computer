@@ -15,14 +15,14 @@ export default {
             flagdot: false,
             
             area: "flex",
-            box1: "flex w-24 h-12 m-auto justify-center items-center rounded-xl",
-            box2: "flex w-64 h-12 my-auto mx-2.5 justify-center items-center bg-gradient-to-r from-sky-500 to-indigo-500 rounded-xl",
-            box13: "flex w-24 h-12 m-2.5 justify-center items-center rounded-xl bg-emerald-900",
-            box4: "flex w-24 h-12 m-2.5 justify-center items-center rounded-xl bg-emerald-400",
+            box1: "flex w-16 h-12 m-auto justify-center items-center rounded-xl shadow-md shadow-black relative hover:scale-95 active:scale-105 ease-in-out duration-300",
+            box13: "flex w-16 h-12 m-2.5 justify-center items-center rounded-xl bg-emerald-900 shadow-md shadow-black relative hover:scale-95 active:scale-105 ease-in-out duration-300",
+            box2: "flex w-36 h-12 my-auto mx-1.5 justify-center items-center bg-gradient-to-r from-sky-500 to-indigo-500 rounded-xl shadow-md shadow-black relative hover:scale-95 active:scale-105 ease-in-out duration-300",
+            box4: "flex w-16 h-12 m-2 justify-center items-center rounded-xl bg-emerald-400 shadow-md shadow-black relative hover:scale-95 active:scale-105 ease-in-out duration-300",
             
-            btnNum: "text-3xl cursor-pointer text-white",
-            btnFunc: "text-3xl cursor-pointer text-white",
-            btnCount: "text-3xl cursor-pointer text-slate-400",
+            btnNum: "w-full h-full text-3xl cursor-pointer text-white",
+            btnFunc: "w-full h-full text-3xl cursor-pointer text-white",
+            btnCount: "w-full h-full text-3xl cursor-pointer text-slate-400",
         }
     },
     methods: {
@@ -76,7 +76,7 @@ export default {
                 this.flagtypeshow(buttontype);
 
             this.result2 = 0;
-            
+
         },
         numequal(){
             if(this.flagplus)
