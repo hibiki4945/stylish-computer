@@ -126,7 +126,7 @@ export default {
         },
         numback(){
             if(this.flagplus || this.flagminus || this.flagmulti || this.flagdivided){
-                console.log(this.resultshowfix);
+                // console.log(this.resultshowfix);
                 if((this.resultshow[this.resultshow.length - 2] === ".") || (this.resultshow[this.resultshow.length - 2] === "0")){
                     this.resultshow = this.resultshow.substring(0, this.resultshow.length - 1)
                     this.resultshowfix = this.resultshow;
@@ -141,14 +141,14 @@ export default {
                 // for(let i=3;i<this.resultshowfix.length;i+=4){
                 //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
                 // }
-                console.log("1234");
+                // console.log("1234");
                 return;
             }
             if((this.resultshow[this.resultshow.length - 2] === ".") || (this.resultshow[this.resultshow.length - 2] === "0")){
                 this.resultshow = this.resultshow.substring(0, this.resultshow.length - 1)
                 this.resultshowup = "";
                 this.resultshowfix = this.resultshow;
-                console.log("123123");
+                // console.log("123123");
                 return;
             }
             if(this.resultshow[this.resultshow.length - 1] === "."){
