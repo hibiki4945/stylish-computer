@@ -77,7 +77,6 @@ export default {
             else
                 this.flagtypeshow(buttontype);
             
-
             this.result2 = 0;
             this.resultshow = "0";
             this.resultshowfix = "0";
@@ -126,11 +125,10 @@ export default {
         },
         numback(){
             if(this.flagplus || this.flagminus || this.flagmulti || this.flagdivided){
-                // console.log(this.resultshowfix);
                 if((this.resultshow[this.resultshow.length - 2] === ".") || (this.resultshow[this.resultshow.length - 2] === "0")){
                     this.resultshow = this.resultshow.substring(0, this.resultshow.length - 1)
                     this.resultshowfix = this.resultshow;
-                    //this.resultseparater();
+                    this.resultseparater();
                     return;
                 }
                 if(this.resultshow[this.resultshow.length - 1] === "."){
@@ -139,11 +137,7 @@ export default {
                 this.result2 = +(this.resultshow.substring(0, this.resultshow.length - 1));
                 this.resultshow = this.result2.toString();
                 this.resultshowfix = this.resultshow;
-                //this.resultseparater();
-                // for(let i=3;i<this.resultshowfix.length;i+=4){
-                //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-                // }
-                // console.log("1234");
+                this.resultseparater();
                 return;
             }
             if((this.resultshow[this.resultshow.length - 2] === ".") || (this.resultshow[this.resultshow.length - 2] === "0")){
@@ -171,7 +165,7 @@ export default {
 
         // number includes function
         includestype(num, type){
-            
+
             if(type === "+")
                 this.flagplus = true;
             if(type === "-")
@@ -182,7 +176,6 @@ export default {
                 this.flagdivided = true;
 
             if(this.resultshow.split('.').length - 1){
-                // console.log("1: "+this.result2);
                 if(num !== 0){
                     this.result2 = +(this.resultshow+num.toString());
                     this.resultshow = this.result2.toString();
@@ -191,12 +184,10 @@ export default {
                     this.resultshow = this.resultshow+num.toString();
                 }
                 this.resultshowfix = this.resultshow;
-                //this.resultseparater();
+                this.resultseparater();
                 return;
             };
-            // console.log("2: "+this.result2);
             this.result2 = this.result2*10 + +num;
-            // console.log("2: "+this.result2);
             this.resultshow = this.result2.toString();
             this.resultshowfix = this.resultshow;
             this.resultseparater();
