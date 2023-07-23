@@ -125,11 +125,11 @@ export default {
 
         },
         numback(){
-            console.log("this.flagplus:"+this.flagplus);
             if(this.flagplus || this.flagminus || this.flagmulti || this.flagdivided){
+                console.log(this.resultshowfix);
                 if((this.resultshow[this.resultshow.length - 2] === ".") || (this.resultshow[this.resultshow.length - 2] === "0")){
                     this.resultshow = this.resultshow.substring(0, this.resultshow.length - 1)
-                    // this.resultshowup = this.resultshow;
+                    this.resultshowfix = this.resultshow;
                     return;
                 }
                 if(this.resultshow[this.resultshow.length - 1] === "."){
@@ -141,13 +141,14 @@ export default {
                 // for(let i=3;i<this.resultshowfix.length;i+=4){
                 //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
                 // }
-                // this.resultshowup = this.resultshow;
+                console.log("1234");
                 return;
             }
             if((this.resultshow[this.resultshow.length - 2] === ".") || (this.resultshow[this.resultshow.length - 2] === "0")){
-                // console.log("lastdot!");
                 this.resultshow = this.resultshow.substring(0, this.resultshow.length - 1)
-                this.resultshowup = this.resultshow;
+                this.resultshowup = "";
+                this.resultshowfix = this.resultshow;
+                console.log("123123");
                 return;
             }
             if(this.resultshow[this.resultshow.length - 1] === "."){
@@ -156,10 +157,11 @@ export default {
             this.result = +(this.resultshow.substring(0, this.resultshow.length - 1));
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
+            // console.log(this.resultshowfix);
             // for(let i=3;i<this.resultshowfix.length;i+=4){
             //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
             // }
-            this.resultshowup = this.resultshow;
+            this.resultshowup = "";
                 
         },
 
