@@ -56,9 +56,7 @@ export default {
             this.result = this.result*10 + +num;
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
+            //this.resultseparater();
         },
         num00(){
             this.numfunction(0);
@@ -109,6 +107,7 @@ export default {
             this.flagdot = true;
             this.resultshow += ".";
             this.resultshowfix = this.resultshow;
+            //this.resultseparater();
         },
         numac(){
             this.result = 0;
@@ -131,6 +130,7 @@ export default {
                 if((this.resultshow[this.resultshow.length - 2] === ".") || (this.resultshow[this.resultshow.length - 2] === "0")){
                     this.resultshow = this.resultshow.substring(0, this.resultshow.length - 1)
                     this.resultshowfix = this.resultshow;
+                    //this.resultseparater();
                     return;
                 }
                 if(this.resultshow[this.resultshow.length - 1] === "."){
@@ -139,6 +139,7 @@ export default {
                 this.result2 = +(this.resultshow.substring(0, this.resultshow.length - 1));
                 this.resultshow = this.result2.toString();
                 this.resultshowfix = this.resultshow;
+                //this.resultseparater();
                 // for(let i=3;i<this.resultshowfix.length;i+=4){
                 //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
                 // }
@@ -149,6 +150,7 @@ export default {
                 this.resultshow = this.resultshow.substring(0, this.resultshow.length - 1)
                 this.resultshowup = "";
                 this.resultshowfix = this.resultshow;
+                //this.resultseparater();
                 // console.log("123123");
                 return;
             }
@@ -158,6 +160,7 @@ export default {
             this.result = +(this.resultshow.substring(0, this.resultshow.length - 1));
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
+            //this.resultseparater();
             // console.log(this.resultshowfix);
             // for(let i=3;i<this.resultshowfix.length;i+=4){
             //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
@@ -188,6 +191,7 @@ export default {
                     this.resultshow = this.resultshow+num.toString();
                 }
                 this.resultshowfix = this.resultshow;
+                //this.resultseparater();
                 return;
             };
             // console.log("2: "+this.result2);
@@ -195,6 +199,8 @@ export default {
             // console.log("2: "+this.result2);
             this.resultshow = this.result2.toString();
             this.resultshowfix = this.resultshow;
+            //this.resultseparater();
+            
         },
         includesdot(num){
             if(num !== 0){
@@ -205,9 +211,14 @@ export default {
                 this.resultshow += num.toString();
             }
             this.resultshowfix = this.resultshow;
-            // for(let i=3;i<this.resultshowfix.length;i+=4){
-            //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
-            // }
+            //this.resultseparater();
+            for(let i=3;i<this.resultshowfix.length;i+=4){
+                console.log("this.resultshow.indexOf(.)"+this.resultshow.indexOf("."));
+                console.log(i);
+                if(this.resultshow.indexOf(".") > i)
+                    this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+                    //this.resultseparater();
+                }
         }, 
 
         // count functions
@@ -247,7 +258,10 @@ export default {
 
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
+            //this.resultseparater();
         },
+
+        // show functions
         flagtypeshow(flagtype){
             this.flagdot = false;
             this.resultshowup = this.result.toString();
@@ -260,6 +274,15 @@ export default {
                 this.resultshowup += "x";
             if(flagtype === "/")
                 this.resultshowup += "/";
+        },
+        resultseparater(){
+            for(let i=3;i<this.resultshowfix.length;i+=4){
+                console.log("this.resultshow.indexOf(.)"+this.resultshow.indexOf("."));
+                console.log(i);
+                if(this.resultshow.indexOf(".") > i)
+                    this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
+                    //this.resultseparater();
+            }
         },
 
         // keyboard input function
