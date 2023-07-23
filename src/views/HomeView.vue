@@ -33,18 +33,23 @@ export default {
         numfunction(num){
             
             // console.log("this.resultshowfix1: "+this.resultshowfix);
-            if(this.resultshowup.includes("+"))
+            if(this.resultshowup.includes("+")){
                 this.includestype(num, "+");
-            else if(this.resultshowup.includes("x"))
-                this.includestype(num, "x");
-            else if(this.resultshowup.includes("/"))
-                this.includestype(num, "/");
-            else if(this.resultshowup.includes("-"))
-                this.includestype(num, "-");
-            if(this.resultshowup.includes("+" || "x" || "/" || "-"))
                 return;
+            }
+            else if(this.resultshowup.includes("x")){
+                this.includestype(num, "x");
+                return;
+            }
+            else if(this.resultshowup.includes("/")){
+                this.includestype(num, "/");
+                return;
+            }
+            else if(this.resultshowup.includes("-")){                this.includestype(num, "-");
+                return;
+            }
 
-            // console.log("this.resultshowfix2: "+this.resultshowfix);
+            // console.log("123");
             if(this.resultshow.includes(".")){
                 this.includesdot(num);
                 return;
@@ -63,7 +68,7 @@ export default {
 
         // count functions(call)
         numflagtype(buttontype){
-            console.log("numflagtype!");
+            // console.log("numflagtype!");
 
             if(this.flagplus)
                 this.flagtypedo("+",buttontype);
@@ -75,6 +80,7 @@ export default {
                 this.flagtypedo("/",buttontype);
             else
                 this.flagtypeshow(buttontype);
+            
 
             this.result2 = 0;
             this.resultshow = "0";
@@ -179,19 +185,22 @@ export default {
                 this.result2 = +(this.resultshow+num.toString());
                 this.resultshow = this.result2.toString();
                 this.resultshowfix = this.resultshow;
+                // console.log(this.result2);
+                // console.log("includestype done(.)!");
                 // for(let i=3;i<this.resultshowfix.length;i+=4){
                 //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
                 // }
                 return;
             };
 
-            // console.log(this.result2);
             this.result2 = this.result2*10 + +num;
             this.resultshow = this.result2.toString();
             this.resultshowfix = this.resultshow;
 
-            console.log(this.resultshow);
-            console.log("includestype done!");
+            // console.log(this.result2);
+            // console.log(this.resultshow);
+            // console.log(this.resultshowfix);
+            // console.log("includestype done!");
             // for(let i=3;i<this.resultshowfix.length;i+=4){
             //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
             // }
@@ -213,7 +222,7 @@ export default {
 
         // count functions
         flagtypedo(flagtypebefore, flagtypeafter){
-            console.log("flagtypedo!");
+            // console.log("flagtypedo!");
             let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
             let pownum2 = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) + ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
             
