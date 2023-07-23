@@ -297,7 +297,8 @@ export default {
                 this.resultshowup += "/";
         },
         resultseparater(){
-            for(let i=3;i<this.resultshowfix.length;i+=4){
+            // for(let i=3;i<this.resultshowfix.length;i+=4){
+            for(let i=this.resultshowfix.length-3;i>0;i-=3){
                 if(this.resultshow.includes(".")){
                     if(this.resultshow.indexOf(".") > i)
                         this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
