@@ -15,14 +15,14 @@ export default {
             flagdot: false,
             
             area: "flex",
-            box1: "flex w-24 h-12 m-auto justify-center items-center rounded-xl",
-            box2: "flex w-64 h-12 my-auto mx-2.5 justify-center items-center bg-gradient-to-r from-sky-500 to-indigo-500 rounded-xl",
-            box13: "flex w-24 h-12 m-2.5 justify-center items-center rounded-xl bg-emerald-900",
-            box4: "flex w-24 h-12 m-2.5 justify-center items-center rounded-xl bg-emerald-400",
+            box1: "flex w-16 h-12 m-auto justify-center items-center rounded-xl shadow-md shadow-black relative hover:scale-95 active:scale-105 ease-in-out duration-300",
+            box13: "flex w-16 h-12 m-2.5 justify-center items-center rounded-xl bg-emerald-900 shadow-md shadow-black relative hover:scale-95 active:scale-105 ease-in-out duration-300",
+            box2: "flex w-36 h-12 my-auto mx-1.5 justify-center items-center bg-gradient-to-r from-sky-500 to-indigo-500 rounded-xl shadow-md shadow-black relative hover:scale-95 active:scale-105 ease-in-out duration-300",
+            box4: "flex w-16 h-12 m-2 justify-center items-center rounded-xl bg-emerald-400 shadow-md shadow-black relative hover:scale-95 active:scale-105 ease-in-out duration-300",
             
-            btnNum: "text-3xl cursor-pointer text-white",
-            btnFunc: "text-3xl cursor-pointer text-white",
-            btnCount: "text-3xl cursor-pointer text-slate-400",
+            btnNum: "w-full h-full text-3xl cursor-pointer text-white",
+            btnFunc: "w-full h-full text-3xl cursor-pointer text-white",
+            btnCount: "w-full h-full text-3xl cursor-pointer text-slate-400",
         }
     },
     methods: {
@@ -63,75 +63,18 @@ export default {
             this.numfunction(0);
         },
 
-        numplus(){
+        numflagtype(buttontype){
             if(this.flagplus)
-                this.flagtypedo("+","+");
+                this.flagtypedo("+",buttontype);
             else if(this.flagminus)
-                this.flagtypedo("-","+");
+                this.flagtypedo("-",buttontype);
             else if(this.flagmulti)
-                this.flagtypedo("x","+");
+                this.flagtypedo("x",buttontype);
             else if(this.flagdivided)
-                this.flagtypedo("/","+");
-            else{
-                this.resultshow = "0";
-                this.flagdot = false;
-                this.resultshowup = this.result.toString();
-                this.resultshowup += "+";
-            }
-            this.result2 = 0;
+                this.flagtypedo("/",buttontype);
+            else
+                this.flagtypeshow(buttontype);
 
-        },
-        numminus(){
-            if(this.flagplus)
-                this.flagtypedo("+","-");
-            else if(this.flagminus)
-                this.flagtypedo("-","-");
-            else if(this.flagmulti)
-                this.flagtypedo("x","-");
-            else if(this.flagdivided)
-                this.flagtypedo("/","-");
-            else{
-                this.resultshow = "0";
-                this.flagdot = false;
-                this.resultshowup = this.result.toString();
-                this.resultshowup += "-";
-            }
-            this.result2 = 0;
-
-        },
-        nummulti(){
-            if(this.flagplus)
-                this.flagtypedo("+","x");
-            else if(this.flagminus)
-                this.flagtypedo("-","x");
-            else if(this.flagmulti)
-                this.flagtypedo("x","x");
-            else if(this.flagdivided)
-                this.flagtypedo("/","x");
-            else{
-                this.resultshow = "0";
-                this.flagdot = false;
-                this.resultshowup = this.result.toString();
-                this.resultshowup += "x";
-            }
-            this.result2 = 0;
-
-        },
-        numdivided(){
-            if(this.flagplus)
-                this.flagtypedo("+","/");
-            else if(this.flagminus)
-                this.flagtypedo("-","/");
-            else if(this.flagmulti)
-                this.flagtypedo("x","/");
-            else if(this.flagdivided)
-                this.flagtypedo("/","/");
-            else{
-                this.resultshow = "0";
-                this.flagdot = false;
-                this.resultshowup = this.result.toString();
-                this.resultshowup += "/";
-            }
             this.result2 = 0;
 
         },
@@ -298,7 +241,7 @@ export default {
             // for(let i=3;i<this.resultshowfix.length;i+=4){
             //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
             // }
-        },
+        }, 
 
         flagtypedo(flagtypebefore, flagtypeafter){
             let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
@@ -337,6 +280,19 @@ export default {
             //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
             // }
         },
+        flagtypeshow(flagtype){
+            this.resultshow = "0";
+            this.flagdot = false;
+            this.resultshowup = this.result.toString();
+            if(flagtype === "+")
+                this.resultshowup += "+";
+            if(flagtype === "-")
+                this.resultshowup += "-";
+            if(flagtype === "x")
+                this.resultshowup += "x";
+            if(flagtype === "/")
+                this.resultshowup += "/";
+        },
     },
 }
 </script>
@@ -355,25 +311,25 @@ export default {
                     <div :class=box1><button type="button" :class=btnNum @click="numfunction(7)">7</button></div>
                     <div :class=box1><button type="button" :class=btnNum @click="numfunction(8)">8</button></div>
                     <div :class=box1><button type="button" :class=btnNum @click="numfunction(9)">9</button></div>
-                    <div :class=box13><button type="button" :class=btnCount @click="numdivided()">/</button></div>
+                    <div :class=box13><button type="button" :class=btnCount @click="numflagtype('/')">/</button></div>
                 </div>
                 <div :class=area>
                     <div :class=box1><button type="button" :class=btnNum @click="numfunction(4)">4</button></div>
                     <div :class=box1><button type="button" :class=btnNum @click="numfunction(5)">5</button></div>
                     <div :class=box1><button type="button" :class=btnNum @click="numfunction(6)">6</button></div>
-                    <div :class=box13><button type="button" :class=btnCount @click="nummulti()">x</button></div>
+                    <div :class=box13><button type="button" :class=btnCount @click="numflagtype('x')">x</button></div>
                 </div>
                 <div :class=area>
                     <div :class=box1><button type="button" :class=btnNum @click="numfunction(1)">1</button></div>
                     <div :class=box1><button type="button" :class=btnNum @click="numfunction(2)">2</button></div>
                     <div :class=box1><button type="button" :class=btnNum @click="numfunction(3)">3</button></div>
-                    <div :class=box13><button type="button" :class=btnCount @click="numplus()">+</button></div>
+                    <div :class=box13><button type="button" :class=btnCount @click="numflagtype('+')">+</button></div>
                 </div> 
                 <div :class=area>
                     <div :class=box1><button type="button" :class=btnNum @click="numfunction(0)">0</button></div>
                     <div :class=box1><button type="button" :class=btnNum @click="num00()">00</button></div>
                     <div :class=box1><button type="button" :class=btnNum @click="numdot()">.</button></div>
-                    <div :class=box13><button type="button" :class=btnCount @click="numminus()">-</button></div>
+                    <div :class=box13><button type="button" :class=btnCount @click="numflagtype('-')">-</button></div>
                 </div>
                 <div :class=area>
                     <div :class=box4><button type="button" :class=btnFunc @click="numac()">AC</button></div>
