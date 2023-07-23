@@ -33,14 +33,22 @@ export default {
         numfunction(num){
             
             // console.log("this.resultshowfix1: "+this.resultshowfix);
-            if(this.resultshowup.includes("+"))
+            if(this.resultshowup.includes("+")){
                 this.includestype(num, "+");
-            else if(this.resultshowup.includes("x"))
+                return;
+            }
+            else if(this.resultshowup.includes("x")){
                 this.includestype(num, "x");
-            else if(this.resultshowup.includes("/"))
+                return;
+            }
+            else if(this.resultshowup.includes("/")){
                 this.includestype(num, "/");
-            else if(this.resultshowup.includes("-"))
+                return;
+            }
+            else if(this.resultshowup.includes("-")){
                 this.includestype(num, "-");
+                return;
+            }
 
             // console.log("this.resultshowfix2: "+this.resultshowfix);
             if(this.resultshow.includes(".")){
@@ -61,6 +69,8 @@ export default {
 
         // count functions(call)
         numflagtype(buttontype){
+            console.log("numflagtype!");
+
             if(this.flagplus)
                 this.flagtypedo("+",buttontype);
             else if(this.flagminus)
@@ -73,6 +83,8 @@ export default {
                 this.flagtypeshow(buttontype);
 
             this.result2 = 0;
+            this.resultshow = "0";
+            this.resultshowfix = "0";
 
         },
         numequal(){
@@ -157,7 +169,8 @@ export default {
         // number includes function
         includestype(num, type){
 
-            console.log("this.resultshowfix1: "+this.resultshowfix);
+            // console.log("includestype!");
+            // console.log(this.result2);
             
             if(type === "+")
                 this.flagplus = true;
@@ -177,9 +190,14 @@ export default {
                 // }
                 return;
             };
+
+            // console.log(this.result2);
             this.result2 = this.result2*10 + +num;
             this.resultshow = this.result2.toString();
             this.resultshowfix = this.resultshow;
+
+            console.log(this.resultshow);
+            console.log("includestype done!");
             // for(let i=3;i<this.resultshowfix.length;i+=4){
             //     this.resultshowfix = this.resultshowfix.slice(0, i) + "," + this.resultshowfix.slice(i);
             // }
@@ -201,9 +219,14 @@ export default {
 
         // count functions
         flagtypedo(flagtypebefore, flagtypeafter){
+            console.log("flagtypedo!");
             let pownum = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) > ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1)) ? (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)):((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
             let pownum2 = (this.resultshow.length - (this.resultshow.indexOf('.', 0)+1)) + ((this.resultshowup.length-1) - (this.resultshowup.indexOf('.', 0)+1));
             
+            // this.result2 = 0;
+            // this.resultshow = "0";
+            // this.resultshowfix = this.resultshow;
+
             // this.resultshowfix = "0";
             
             this.flagplus = false;
@@ -251,11 +274,14 @@ export default {
             // console.log("this.resultshowfix:(=)"+this.resultshowfix);
         },
         flagtypeshow(flagtype){
+            // console.log("flagtypeshow!");
             this.flagdot = false;
             this.resultshowup = this.result.toString();
-            this.result = 0;
-            this.resultshow = "0";
-            this.resultshowfix = this.resultshow;
+
+            // this.result2 = 0;
+            // this.resultshow = "0";
+            // this.resultshowfix = this.resultshow;
+
             if(flagtype === "+")
                 this.resultshowup += "+";
             if(flagtype === "-")
