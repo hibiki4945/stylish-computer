@@ -56,7 +56,7 @@ export default {
             this.result = this.result*10 + +num;
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            if(this.resultshowfix.length > 7)
+            if(this.resultshow.length > 7)
                 this.resultshowfix = this.result.toExponential(2);
             else
                 this.resultseparater();
@@ -102,14 +102,13 @@ export default {
         // others functions
         numdot(){
             
-            if(this.flagdot){
+            if(this.flagdot)
                 return;
-            }
 
             this.flagdot = true;
             this.resultshow += ".";
             this.resultshowfix = this.resultshow;
-            if(this.resultshowfix.length > 7)
+            if(this.resultshow.length > 7)
                 this.resultshowfix = this.result.toExponential(2);
             else
                 this.resultseparater();
@@ -134,7 +133,8 @@ export default {
                 if((this.resultshow[this.resultshow.length - 2] === ".") || (this.resultshow[this.resultshow.length - 2] === "0")){
                     this.resultshow = this.resultshow.substring(0, this.resultshow.length - 1)
                     this.resultshowfix = this.resultshow;
-                    if(this.resultshowfix.length > 7)
+                    
+                    if(this.resultshow.length > 7)
                         this.resultshowfix = this.result.toExponential(2);
                     else
                         this.resultseparater();
@@ -146,17 +146,21 @@ export default {
                 this.result2 = +(this.resultshow.substring(0, this.resultshow.length - 1));
                 this.resultshow = this.result2.toString();
                 this.resultshowfix = this.resultshow;
-                if(this.resultshowfix.length > 7)
+                if(this.resultshow.length > 7)
                     this.resultshowfix = this.result2.toExponential(2);
                 else
                     this.resultseparater();
                 return;
             }
             if((this.resultshow[this.resultshow.length - 2] === ".") || (this.resultshow[this.resultshow.length - 2] === "0")){
+                
                 this.resultshow = this.resultshow.substring(0, this.resultshow.length - 1)
                 this.resultshowup = "";
                 this.resultshowfix = this.resultshow;
-                //this.resultseparater();
+                if(this.resultshow.length > 7)
+                    this.resultshowfix = this.result.toExponential(2);
+                else
+                    this.resultseparater();
                 return;
             }
             if(this.resultshow[this.resultshow.length - 1] === "."){
@@ -165,8 +169,11 @@ export default {
             this.result = +(this.resultshow.substring(0, this.resultshow.length - 1));
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
-            //this.resultseparater();
             this.resultshowup = "";
+            if(this.resultshow.length > 7)
+                this.resultshowfix = this.result.toExponential(2);
+            else
+                this.resultseparater();
                 
         },
 
@@ -191,7 +198,7 @@ export default {
                     this.resultshow = this.resultshow+num.toString();
                 }
                 this.resultshowfix = this.resultshow;
-                if(this.resultshowfix.length > 7)
+                if(this.resultshow.length > 7)
                     this.resultshowfix = this.result2.toExponential(2);
                 else
                     this.resultseparater();
@@ -200,7 +207,7 @@ export default {
             this.result2 = this.result2*10 + +num;
             this.resultshow = this.result2.toString();
             this.resultshowfix = this.resultshow;
-            if(this.resultshowfix.length > 7)
+            if(this.resultshow.length > 7)
                 this.resultshowfix = this.result2.toExponential(2);
             else
                 this.resultseparater();
@@ -215,7 +222,7 @@ export default {
                 this.resultshow += num.toString();
             }
             this.resultshowfix = this.resultshow;
-            if(this.resultshowfix.length > 7)
+            if(this.resultshow.length > 7)
                 this.resultshowfix = this.result.toExponential(2);
             else
                 this.resultseparater();
@@ -259,7 +266,7 @@ export default {
             this.resultshow = this.result.toString();
             this.resultshowfix = this.resultshow;
             
-            if(this.resultshowfix.length > 7)
+            if(this.resultshow.length > 7)
                 this.resultshowfix = this.result.toExponential(2);
             else
                 this.resultseparater();
